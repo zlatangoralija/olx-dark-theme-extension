@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "OLX.ba Dark tema",
+  "version": "1.0.0",
+  "description": "Uživajte u ugodnijem pretraživanju oglasa uz modernu Dark temu za olx.ba. Odmarajte oči dok trgujete!",
+  "author": "Zlatan Goralija",
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "OLX.ba Dark tema"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.olx.ba/*"
+  ],
+  "background": {
+    "service_worker": "src/scripts/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://olx.ba/*",
+        "https://www.olx.ba/*"
+      ],
+      "js": ["src/scripts/content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

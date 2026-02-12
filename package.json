@@ -1,0 +1,23 @@
+{
+  "name": "olx-dark-mode-extension",
+  "version": "1.0.0",
+  "description": "A browser extension that adds a high-quality dark mode to olx.ba",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.25",
+    "sass": "^1.77.0",
+    "vite": "^5.4.0"
+  },
+  "keywords": [
+    "browser-extension",
+    "dark-mode",
+    "olx",
+    "chrome-extension"
+  ],
+  "license": "MIT"
+}

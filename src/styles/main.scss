@@ -1,0 +1,5493 @@
+@use 'variables' as *;
+
+// Root selector - all dark mode styles scoped under this class
+html.olx-dark-mode {
+  // Map SCSS variables to CSS Custom Properties
+  --bg-main: #{$dark-bg-main};
+  --bg-card: #{$dark-bg-card};
+  --bg-elevated: #{$dark-bg-elevated};
+  --text-main: #{$dark-text-main};
+  --text-muted: #{$dark-text-muted};
+  --border-color: #{$dark-border};
+  --accent-primary: #{$accent-primary};
+  --accent-hover: #{$accent-hover};
+}
+
+// Global body rule for dark mode
+html.olx-dark-mode body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+// ===========================================
+// HEADER / NAVBAR
+// ===========================================
+html.olx-dark-mode {
+  // Header element
+  header {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Main header bar
+  .headerbar {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Headerbar ancestor containers - match background so padding gaps
+  // don't show the body color bleeding through.
+  // Covers layouts where .headerbar is not inside a <header> tag.
+  div:has(> .headerbar),
+  div:has(> div > .headerbar) {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Override Tailwind bg-white classes
+  .bg-white,
+  .bg-white\/90,
+  [class*="bg-white"] {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Override Tailwind slate/gray backgrounds
+  .bg-slate-50,
+  .bg-slate-100,
+  .bg-slate-200,
+  .bg-gray-100,
+  .bg-gray-200 {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Logo text color (hidden but just in case)
+  .headerbar .text-\[\#012F34\] {
+    color: var(--accent-primary) !important;
+  }
+
+  // Logo container - keep transparent
+  .logo {
+    background-color: transparent !important;
+  }
+}
+
+// ===========================================
+// SEARCH BAR
+// ===========================================
+html.olx-dark-mode {
+  // Search wrapper
+  .searchbar-wrapper {
+    background-color: #2C2C2C !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Main search input
+  .main-search,
+  input[type="search"],
+  input[name="notASearchField"] {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    &::placeholder {
+      color: var(--text-muted) !important;
+      opacity: 1;
+    }
+  }
+
+  // Search dropdown
+  .lin-dropdown {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .lin-header {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .lin-header-label,
+  .lin-header-term {
+    color: var(--text-main) !important;
+  }
+
+  .lin-empty {
+    background-color: var(--bg-card) !important;
+  }
+
+  .lin-empty-title {
+    color: var(--text-muted) !important;
+  }
+}
+
+// ===========================================
+// MAIN NAVIGATION LINKS
+// ===========================================
+html.olx-dark-mode {
+  // Navigation links list
+  .nav-links {
+    color: var(--text-main) !important;
+  }
+
+  // Override Tailwind text-slate colors
+  .text-slate-700,
+  .text-slate-800,
+  .text-slate-900 {
+    color: var(--text-main) !important;
+  }
+
+  // Navigation links
+  .nav-links a,
+  .nav-links button,
+  .headerbar a,
+  .headerbar button {
+    color: var(--text-main) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  // "Objavi oglas" button in nav (light styled)
+  .nav-links button.bg-slate-100,
+  .nav-links button[class*="bg-slate"] {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+  }
+
+  // Login link
+  .headerbar a[href="/login"] {
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  // Registration button (keep it prominent)
+  .headerbar a[href="/register"],
+  a.bg-gray-800 {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+
+    &:hover {
+      background-color: var(--accent-hover) !important;
+    }
+  }
+
+  // Dropdown menus
+  [class*="dropdown"],
+  .lin-dropdown {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Menu button (hamburger)
+  .headerbar button[style*="background:#f1f4f5"] {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+  }
+
+  // "Objavi oglas" main button (dark green one)
+  .headerbar button[style*="background:#002f34"] {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+  }
+
+  // SVG icons in header - invert for visibility
+  .headerbar img[src*="/svg/"],
+  .nav-links svg {
+    filter: brightness(0) invert(1);
+  }
+
+  // But not the logo
+  .headerbar img.olx-logo,
+  .headerbar img[alt="olx-logo"] {
+    filter: none !important;
+  }
+
+  // Active navigation links (Nuxt) - only nuxt-link-exact-active (current page)
+  // Using higher specificity to override scoped Vue styles with [data-v-*]
+  a.nuxt-link-exact-active[data-v-1f1acea4],
+  a.nuxt-link-exact-active.nuxt-link-active[data-v-1f1acea4],
+  .headerbar a.nuxt-link-exact-active[data-v-1f1acea4],
+  a[class*="nuxt-link-exact-active"][data-v-1f1acea4],
+  // Generic high specificity selectors
+  html.olx-dark-mode .headerbar a.nuxt-link-exact-active,
+  html.olx-dark-mode .nav-links a.nuxt-link-exact-active,
+  html.olx-dark-mode li a.nuxt-link-exact-active {
+    color: #FFD700 !important; // Gold - more visible on dark background
+  }
+
+  // Dropdown menu in header
+  .headerbar .absolute,
+  .headerbar [class*="absolute"][class*="bg-white"] {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  // Dropdown links - high specificity to override Vue scoped styles
+  .headerbar .absolute a,
+  .headerbar .absolute li,
+  .headerbar .absolute a[data-v-1f1acea4],
+  .headerbar .absolute li[data-v-1f1acea4],
+  html.olx-dark-mode .headerbar .absolute a,
+  html.olx-dark-mode .headerbar .absolute li {
+    color: var(--text-main) !important;
+  }
+
+  .headerbar .absolute a:hover,
+  html.olx-dark-mode .headerbar .absolute a:hover {
+    color: var(--accent-primary) !important;
+  }
+
+  // Slate-600 text in dropdown
+  .text-slate-600,
+  .headerbar .text-slate-600 {
+    color: var(--text-muted) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Border slate colors
+  .border-slate-100,
+  .border-slate-200 {
+    border-color: var(--border-color) !important;
+  }
+
+  // Emerald button in dropdown ("Objavi oglas")
+  .headerbar .bg-emerald-500,
+  button.bg-emerald-500 {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+
+    &:hover {
+      background-color: var(--accent-hover) !important;
+    }
+  }
+}
+
+// ===========================================
+// LANDING PAGE BACKGROUND
+// ===========================================
+html.olx-dark-mode {
+  .landing-page {
+    background-color: var(--bg-main) !important; // #121212 - darker base
+  }
+
+  // Section titles
+  .landing-page .index-title,
+  .index-title,
+  h2.index-title {
+    color: var(--text-main) !important;
+  }
+
+  // All buttons inside landing page (match header style)
+  .landing-page button,
+  .landing-page [class*="btn"],
+  .landing-page [class*="button"],
+  .landing-page input[type="button"],
+  .landing-page input[type="submit"] {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+    border-color: var(--accent-primary) !important;
+
+    &:hover {
+      background-color: var(--accent-hover) !important;
+      border-color: var(--accent-hover) !important;
+    }
+
+    // Button text and children
+    *,
+    p,
+    span {
+      color: var(--bg-main) !important;
+    }
+
+    // Invert icons inside buttons
+    img {
+      filter: brightness(0) !important;
+    }
+  }
+}
+
+// ===========================================
+// NEWSLETTER SECTION
+// ===========================================
+html.olx-dark-mode {
+  // Container - dark blue to stand out (dark version of #c7dbff)
+  .newsletter {
+    background-color: #1a2a4a !important; // Dark blue accent
+  }
+
+  // Heading - override inline style
+  .newsletter h3,
+  .newsletter h3[style*="color: black"] {
+    color: var(--text-main) !important;
+  }
+
+  // Email input
+  .newsletter input[type="email"],
+  .newsletter input#email {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    &::placeholder {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Email icon
+  .newsletter svg.text-gray-400 {
+    color: var(--text-muted) !important;
+  }
+
+  // Submit button
+  .newsletter button,
+  .newsletter button.bg-gray-800 {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+
+    &:hover {
+      background-color: var(--accent-hover) !important;
+    }
+  }
+
+  // Social media links
+  .newsletter a {
+    color: var(--text-main) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+// ===========================================
+// POPULAR CATEGORIES SECTION
+// ===========================================
+html.olx-dark-mode {
+  // Container - dark teal to stand out (dark version of #cbf7ee)
+  .cats-wrap,
+  .cats-wrap.bg-gray-900 {
+    background-color: #0d3d3d !important; // Dark teal accent
+  }
+
+  // Label text
+  .cats-wrap b,
+  .cats-wrap .text-gray-600 {
+    color: var(--accent-primary) !important;
+  }
+
+  // Category links
+  .cats-wrap a {
+    color: var(--text-main) !important;
+
+    &:hover {
+      color: var(--accent-hover) !important;
+    }
+  }
+
+  // List items
+  .cats-wrap li {
+    color: var(--text-main) !important;
+  }
+}
+
+// ===========================================
+// LISTING CARDS (GRID)
+// ===========================================
+html.olx-dark-mode {
+  // Target h1 anywhere inside grid-desktop
+  .grid-desktop {
+    h1,
+    h1 *,
+    * h1,
+    * h1 * {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Also target with higher specificity
+  [class*="grid-desktop"] h1,
+  [class*="grid"] h1 {
+    color: var(--text-main) !important;
+  }
+}
+
+// ===========================================
+// FOOTER
+// ===========================================
+html.olx-dark-mode {
+  #olx-home-footer,
+  .footer-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .footer-links {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Footer list items (headings)
+  .footer-links ul li {
+    color: var(--text-main) !important;
+  }
+
+  // Footer links
+  .footer-links a,
+  .footer-links a * {
+    color: var(--text-muted) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Support button
+  .footer-links .support {
+    background-color: transparent !important;
+    border-color: var(--text-main) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--text-main) !important;
+      color: var(--bg-main) !important;
+    }
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Copyright section
+  .footer-copyright {
+    background-color: var(--bg-main) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .footer-copyright p {
+    color: var(--text-muted) !important;
+  }
+}
+
+// ===========================================
+// SECTION BAR
+// ===========================================
+html.olx-dark-mode {
+  .section-bar {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Target all links and their children in section-bar
+  .section-bar a,
+  .section-bar a *,
+  .section-bar a span,
+  .section-bar a p,
+  .section-bar div a,
+  .section-bar ul a,
+  .section-bar li a {
+    color: var(--text-main) !important;
+  }
+
+  .section-bar a:hover,
+  .section-bar a:hover * {
+    color: var(--accent-primary) !important;
+  }
+}
+
+// ===========================================
+// CATEGORIES PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main page background
+  .mobile-bg {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Section title ("Kategorije")
+  .section-title,
+  h2.section-title {
+    color: var(--text-main) !important;
+  }
+
+  // Category search input
+  .search-input,
+  input.search-input {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    &::placeholder {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Content wrapper
+  .max-w-1120.bg-white,
+  .max-w-1120[class*="bg-white"] {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Loading wrapper
+  .loading-wrapper {
+    background-color: transparent !important;
+  }
+
+  // Categories grid container
+  .categories-grid {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Main category blocks
+  .main-categories {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Category links - main categories
+  .main-categories a,
+  .main-categories a.first,
+  .main-categories a.text-xs {
+    color: var(--text-main) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Main category titles (bold)
+  .main-categories a.first,
+  .main-categories .font-semibold {
+    color: var(--text-main) !important;
+  }
+
+  // Children wrapper (subcategories)
+  .children-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Child items
+  .child-item {
+    color: var(--text-main) !important;
+
+    a {
+      color: var(--text-muted) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Level 2 nested categories
+  .children-wrapper.level-2 {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Arrow icons - invert for visibility
+  .arrow-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  // Category transition wrapper
+  .category-transition {
+    background-color: transparent !important;
+  }
+}
+
+// ===========================================
+// MOBILE BOTTOM NAVIGATION
+// ===========================================
+html.olx-dark-mode {
+  .botnav {
+    background-color: var(--bg-card) !important;
+  }
+
+  .MobileNavbar,
+  .MobileNavbar.bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Mobile nav links
+  .MobileNavbar a {
+    color: var(--text-main) !important;
+
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    &:hover p {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Mobile nav icons - invert for visibility
+  .MobileNavbar img[src*="/svg/"] {
+    filter: brightness(0) invert(1);
+  }
+
+  // Notification count badge
+  .notification-count {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+  }
+}
+
+// ===========================================
+// SHOPS PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main shops page container
+  .shops-page {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Layout wrapper
+  .shops-page .layout {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Pane cards (sidebars and main content)
+  .pane-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Pane title
+  .pane-title {
+    color: var(--text-main) !important;
+  }
+
+  // Category list in sidebar
+  .cat-list {
+    background-color: var(--bg-card) !important;
+  }
+
+  .cat-item {
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.active {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    span {
+      color: inherit !important;
+    }
+
+    .chev svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Topbar with titles
+  .topbar {
+    background-color: var(--bg-card) !important;
+  }
+
+  .main-title,
+  .main-title span {
+    color: var(--text-main) !important;
+  }
+
+  .subtitle {
+    color: var(--text-muted) !important;
+  }
+
+  // Alphabet filter
+  .alphabet {
+    background-color: var(--bg-card) !important;
+
+    li {
+      color: var(--text-muted) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-main) !important;
+      }
+
+      &.active {
+        background-color: var(--accent-primary) !important;
+        color: var(--bg-main) !important;
+      }
+    }
+  }
+
+  // Shop cards
+  .card-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .card-inner {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .logo-wrapper {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .shop-name {
+    color: var(--text-main) !important;
+  }
+
+  .listings-badge {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .hover-glow {
+    background-color: rgba(77, 182, 172, 0.1) !important;
+  }
+
+  // Pagination
+  .pagination-wrap,
+  .olx-pagination-wrapper {
+    background-color: transparent !important;
+  }
+
+  .olx-pagination-wrapper {
+    button {
+      background-color: transparent !important;
+      border-color: var(--border-color) !important;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    ul li {
+      color: var(--text-muted) !important;
+      background-color: transparent !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &.active {
+        background-color: var(--accent-primary) !important;
+        color: var(--bg-main) !important;
+      }
+    }
+  }
+
+  // Right sidebar info boxes
+  .pane-right {
+    .text-gray-900 {
+      color: var(--text-main) !important;
+    }
+
+    .text-gray-600,
+    .text-gray-700 {
+      color: var(--text-muted) !important;
+    }
+
+    // Blue themed elements
+    .text-blue-600,
+    .text-blue-700 {
+      color: var(--accent-primary) !important;
+    }
+
+    .bg-blue-50,
+    .from-blue-50,
+    .via-white,
+    .to-blue-50 {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    .border-blue-200\/60 {
+      border-color: var(--border-color) !important;
+    }
+
+    .from-blue-500,
+    .to-blue-600 {
+      background-color: var(--accent-primary) !important;
+    }
+
+    a {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
+// SHOP DETAILS PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main shop background
+  .shop-bg {
+    background-color: var(--bg-main) !important;
+  }
+
+  // User/Shop profile details panel
+  .UserProfileDetailsPanel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Listing preview toolbar (share, info buttons)
+  .ListingPreviewToolbar {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    button {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--border-color) !important;
+      }
+    }
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Sticky profile section
+  .profile-sticky {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Shop avatar/logo container
+  .shop-avatar {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Shop name and info
+  .shop-name,
+  .UserProfileDetailsPanel h1 {
+    color: var(--text-main) !important;
+  }
+
+  // "Gold OLX shop" package label
+  .package {
+    background-color: #b8860b !important; // Dark golden
+    color: #fff !important;
+  }
+
+  // Medals/badges wrap
+  .medals-wrap {
+    background-color: transparent !important;
+
+    img {
+      // Keep medal images visible
+      filter: none !important;
+    }
+  }
+
+  // User info text
+  .UserProfileDetailsPanel .text-gray-600,
+  .UserProfileDetailsPanel .text-sm {
+    color: var(--text-muted) !important;
+  }
+
+  // Tabs navigation
+  .tabs {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    ul {
+      background-color: var(--bg-card) !important;
+    }
+
+    li {
+      color: var(--text-muted) !important;
+      border-color: transparent !important;
+
+      &:hover {
+        color: var(--text-main) !important;
+      }
+
+      a {
+        color: inherit !important;
+      }
+    }
+
+    // Active tab
+    li.active,
+    li a.nuxt-link-exact-active {
+      color: var(--accent-primary) !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Section headings
+  .heading {
+    color: var(--text-main) !important;
+  }
+
+  // Sort dropdown filter
+  .sortGroupFilter {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    .label-wrap,
+    .new-wrap {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+    }
+
+    // Dropdown panel
+    .absolute {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    button {
+      background-color: transparent !important;
+      color: var(--text-main) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+    }
+
+    // Dropdown divider
+    .bg-gray-100 {
+      background-color: var(--border-color) !important;
+    }
+
+    // Dropdown labels
+    .text-gray-400 {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Listing cards
+  .listing-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    // Card title
+    h1 {
+      color: var(--text-main) !important;
+    }
+
+    // Card image wrapper
+    .image-wrapper {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  // Lower labels section (on cards)
+  .lower-labels {
+    background-color: transparent !important;
+  }
+
+  // Highlighted labels (badges like "TOP", "IZDVOJENO", etc.)
+  .highlighted-label {
+    // Keep original colors for visibility, just adjust if needed
+    &.level-2 {
+      // Secondary highlight - slightly transparent
+      background-color: rgba(77, 182, 172, 0.2) !important;
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Standard tags (diesel, km, year)
+  .standard-tag {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+
+    div {
+      color: inherit !important;
+    }
+  }
+
+  // State label (Polovno/Novo)
+  .state {
+    color: var(--text-muted) !important;
+  }
+
+  // Price wrapper
+  .price-wrap {
+    color: var(--text-main) !important;
+  }
+
+  // Regular price
+  .listing-card .font-bold,
+  .listing-card .smaller {
+    color: var(--text-main) !important;
+  }
+
+  // Discounted price styling
+  .discount {
+    color: var(--text-muted) !important;
+    text-decoration: line-through !important;
+  }
+
+  .discounted-price {
+    color: #ef4444 !important; // Red for discounted price
+  }
+
+  // Urgent wrapper
+  .urgent-wrapper {
+    background-color: transparent !important;
+  }
+
+  // Location and time info
+  .listing-card .text-gray-500,
+  .listing-card .text-gray-600 {
+    color: var(--text-muted) !important;
+  }
+
+  // Image count overlay
+  .image-count {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Favorite/bookmark button on cards
+  .listing-card button,
+  .favorite-btn {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: var(--text-main) !important;
+
+    svg {
+      color: var(--text-main) !important;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+  }
+
+  // Grid wrapper for listings
+  .listing-grid,
+  .listings-grid {
+    background-color: transparent !important;
+  }
+
+  // Stats and counters
+  .UserProfileDetailsPanel .flex span,
+  .UserProfileDetailsPanel .stats {
+    color: var(--text-main) !important;
+  }
+
+  // Follow/contact buttons
+  .UserProfileDetailsPanel button {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    &.bg-emerald-500,
+    &[class*="bg-emerald"] {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+    }
+  }
+
+  // Share and info icons
+  .UserProfileDetailsPanel svg,
+  .profile-sticky svg {
+    color: var(--text-main) !important;
+  }
+
+  // Rating stars
+  .rating {
+    color: #fbbf24 !important; // Keep gold for stars
+  }
+
+  // Tab content area
+  .tab-content {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Empty state messages
+  .empty-state,
+  .error {
+    color: var(--text-muted) !important;
+    background-color: transparent !important;
+
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    img {
+      opacity: 0.8;
+    }
+  }
+
+  // Load more button
+  .load-more {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+  }
+
+  // Shop filters sidebar
+  .shop-filters {
+    background-color: var(--bg-card) !important;
+
+    // Search input in filters
+    .search-input {
+      background-color: #2C2C2C !important;
+      border-color: var(--border-color) !important;
+
+      input {
+        background-color: transparent !important;
+        color: #FFFFFF !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    // Filter headers (KATEGORIJA, Cijena, etc.)
+    .new-wrap,
+    .category-filter-header {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      h2 {
+        color: var(--text-main) !important;
+      }
+
+      svg {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Nested sortGroupFilter inside filters
+    .sortGroupFilter {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Category list
+    .main-ul {
+      background-color: var(--bg-card) !important;
+
+      li {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+
+        // Nested sortGroupFilter in list items
+        .sortGroupFilter {
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    // Category items with hover
+    .add-hover {
+      color: var(--text-main) !important;
+      background-color: var(--bg-card) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      span {
+        color: var(--text-main) !important;
+        background-color: transparent !important;
+      }
+
+      .inner {
+        color: var(--text-main) !important;
+        background-color: transparent !important;
+      }
+
+      // Disabled state (category names)
+      span.disabled {
+        color: var(--text-main) !important;
+        background-color: transparent !important;
+
+        div {
+          color: var(--text-main) !important;
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    // All divs inside shop-filters - force transparent bg
+    div {
+      background-color: transparent !important;
+    }
+
+    // Except specific containers that need background
+    > div,
+    .range {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Category count number
+    .count-number {
+      color: var(--text-muted) !important;
+    }
+
+    // Category caret icon
+    .category-caret {
+      filter: brightness(0) invert(1);
+    }
+
+    // Price inputs
+    input[type="number"] {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // "DODATNI FILTERI" heading
+    .ostali {
+      color: var(--text-main) !important;
+    }
+
+    // "Osvježi rezultate" button
+    button[style*="background: rgb(0, 47, 52)"] {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+    }
+
+    // Clear filters button
+    button.clear {
+      background-color: transparent !important;
+      color: var(--text-muted) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        color: var(--text-main) !important;
+        background-color: var(--bg-elevated) !important;
+      }
+
+      svg {
+        color: inherit !important;
+      }
+    }
+
+    // Range/filter container
+    .range {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Button wrap
+    .btn-wrap {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Mobile padding
+    .mobile-padding {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  // "Filteri" heading outside shop-filters container
+  .flex.flex-col > h3.heading {
+    color: var(--text-main) !important;
+  }
+}
+
+// ===========================================
+// ITEM DETAILS PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main page background
+  .articles-bg {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Mobile padding container
+  .mobile-padding {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Details content wrapper
+  .details {
+    background-color: var(--bg-card) !important;
+
+    .bg-white {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  // Main listing title
+  .main-title-listing {
+    color: var(--text-main) !important;
+  }
+
+  // Price section
+  .price-wrap,
+  .pricing {
+    background-color: var(--bg-card) !important;
+
+    .price-heading,
+    .vat {
+      color: var(--text-main) !important;
+    }
+
+    .itemValue {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Price history
+  .price-history {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+
+    ul {
+      background-color: transparent !important;
+    }
+
+    li {
+      color: var(--text-muted) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    span {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Delivery and info pills
+  .btn-pill {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &.delivery {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    svg {
+      color: inherit !important;
+    }
+  }
+
+  // Breadcrumbs
+  .breadcrumbs,
+  a.breadcrumbs {
+    color: var(--text-muted) !important;
+
+    &:hover {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Share and save buttons
+  .details button.border-gray-100,
+  .details button[class*="border-gray"] {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Image gallery / carousel
+  .carouselMain {
+    background-color: var(--bg-card) !important;
+  }
+
+  .thumb-example {
+    background-color: var(--bg-card) !important;
+  }
+
+  .gallery-top {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Swiper elements
+  .swiper-container,
+  .swiper {
+    background-color: transparent !important;
+  }
+
+  .swiper-slide {
+    background-color: var(--bg-main) !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--text-main) !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50%;
+    padding: 20px !important;
+
+    &:after {
+      color: white !important;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    background-color: var(--text-muted) !important;
+
+    &-active {
+      background-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Icons wrapper (image counter)
+  .icons-wrapper {
+    background-color: transparent !important;
+  }
+
+  .image-counter {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: var(--text-main) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Main image overlay (fullscreen gallery)
+  .main-image-overlay {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+
+    .main-image-overlay-header {
+      background-color: transparent !important;
+
+      h2 {
+        color: var(--text-main) !important;
+      }
+
+      svg {
+        color: var(--text-main) !important;
+      }
+    }
+
+    .main-image-overlay-content {
+      background-color: transparent !important;
+    }
+  }
+
+  // Mask images (plate masking)
+  .mask-images {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Required attributes (Brand, Model, etc.)
+  .required-wrap {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+
+    h4 {
+      color: var(--text-main) !important;
+    }
+
+    a {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+
+    img {
+      filter: brightness(0) invert(0.8);
+    }
+  }
+
+  // Section titles (Oprema, etc.)
+  h3.section-title,
+  .section-title {
+    color: var(--text-main) !important;
+  }
+
+  // Attribute tables (tbody with grid rows)
+  .tbody {
+    background-color: var(--bg-card) !important;
+
+    // Grid rows with border
+    .grid {
+      border-color: var(--border-color) !important;
+    }
+
+    .border-gray-100 {
+      border-color: var(--border-color) !important;
+    }
+
+    h4 {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Sidebar / user contact section
+  .sidebar,
+  .user-panel,
+  .contact-section {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Login prompt
+  .details a[href="/login"] {
+    color: var(--accent-primary) !important;
+
+    &:hover {
+      color: var(--accent-hover) !important;
+    }
+  }
+
+  // Blink indicator
+  .blink {
+    background-color: var(--accent-primary) !important;
+  }
+
+  // Article description
+  .article-description,
+  .description {
+    color: var(--text-main) !important;
+    background-color: var(--bg-card) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Bubble (ad container)
+  .bubble {
+    background-color: transparent !important;
+  }
+
+  // Banner ads
+  .baner {
+    background-color: transparent !important;
+  }
+
+  // Width container
+  .w-1180 {
+    background-color: transparent !important;
+  }
+
+  // Rounded containers
+  .rounded-5 {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Gallery items in overlay
+  .gallery-items {
+    background-color: transparent !important;
+  }
+
+  // Slick slider (in overlay)
+  .slick-slider {
+    background-color: transparent !important;
+  }
+
+  .slick-slide {
+    background-color: transparent !important;
+  }
+
+  .custom-arrow {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: var(--text-main) !important;
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Similar listings section
+  .similar-listings,
+  .related-listings {
+    background-color: var(--bg-main) !important;
+
+    h2, h3 {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Sticky sidebar wrapper
+  .sticky-wrap {
+    background-color: var(--bg-card) !important;
+  }
+
+  // User info section
+  .user-info {
+    background-color: var(--bg-card) !important;
+
+    h3 {
+      color: var(--text-muted) !important;
+    }
+
+    .user-info__username {
+      color: var(--text-main) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    .last-time-online {
+      color: var(--text-muted) !important;
+    }
+
+    // Avatar
+    .avatar-new {
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  // Medals/badges
+  .medals-wrap {
+    background-color: transparent !important;
+  }
+
+  .user-medals {
+    background-color: transparent !important;
+  }
+
+  .medal {
+    background-color: transparent !important;
+  }
+
+  // Tooltip for medals
+  .tooltip {
+    .tooltiptext {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  // Average response time box
+  .avg-response-time {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Custom info / login section
+  .custom-info {
+    background-color: var(--bg-card) !important;
+
+    &.logged {
+      background-color: var(--bg-card) !important;
+    }
+
+    .logged-text {
+      color: var(--text-main) !important;
+    }
+
+    .logged-img {
+      border-color: var(--border-color) !important;
+      filter: brightness(0.8) invert(0.2);
+    }
+
+    .text-content {
+      color: var(--text-main) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+    }
+
+    a {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+  }
+
+  // Booking form / calendar
+  .booking-form {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    span {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // V-Calendar component
+  .vc-container {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .vc-pane-container {
+    background-color: var(--bg-card) !important;
+  }
+
+  .vc-pane {
+    background-color: var(--bg-card) !important;
+  }
+
+  .vc-header {
+    background-color: var(--bg-card) !important;
+
+    .vc-title {
+      color: var(--text-main) !important;
+    }
+  }
+
+  .vc-weeks {
+    background-color: var(--bg-card) !important;
+  }
+
+  .vc-weekday {
+    color: var(--text-muted) !important;
+  }
+
+  .vc-day {
+    background-color: var(--bg-card) !important;
+
+    .vc-day-content {
+      color: var(--text-main) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &.is-disabled {
+        color: var(--text-muted) !important;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .vc-day.is-today .vc-day-content {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+  }
+
+  .vc-day.is-not-in-month .vc-day-content {
+    color: var(--text-muted) !important;
+    opacity: 0.4;
+  }
+
+  .vc-arrows-container {
+    background-color: transparent !important;
+  }
+
+  .vc-arrow {
+    color: var(--text-main) !important;
+    background-color: var(--bg-elevated) !important;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    &.is-disabled {
+      color: var(--text-muted) !important;
+      opacity: 0.5;
+    }
+
+    .vc-svg-icon {
+      fill: var(--text-main) !important;
+    }
+  }
+
+  // Ad description container
+  .ad-description-container {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+
+    // Buttons inside description
+    button {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--border-color) !important;
+      }
+
+      svg {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Links
+    a {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
+// SEARCH PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main search page container
+  .pretraga-page {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Filter box
+  .filter-box {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    &.desktop {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  // Article filters wrapper
+  .article-filters,
+  .article-filters-new-inner {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Filter headers / labels
+  .label-wrap {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    span {
+      color: var(--text-main) !important;
+    }
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Filter dropdown containers
+  .sortGroupFilter {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    label {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Filter inner content
+  .filter-inner {
+    background-color: var(--bg-card) !important;
+
+    input {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    select {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  // Search background select
+  .search-bg {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    option {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+
+      &:disabled {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Selected brands dropdown
+  .selected-brands {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Refresh button
+  button.refresh {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+
+    img {
+      filter: brightness(0) !important;
+    }
+  }
+
+  // Option buttons (sort options)
+  .option {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    &.selected {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+    }
+  }
+
+  // Checkbox filters
+  .checkbox-filter,
+  .checkbox-filter-available {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    label {
+      color: var(--text-main) !important;
+    }
+
+    input[type="checkbox"] {
+      accent-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Current category header
+  .current-category {
+    color: var(--text-main) !important;
+
+    h1, h2 {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Search title
+  .search-title {
+    color: var(--text-main) !important;
+  }
+
+  // Main heading
+  .main-heading {
+    color: var(--text-main) !important;
+
+    &.normal-heading {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Articles grid container
+  .articles {
+    background-color: transparent !important;
+  }
+
+  // Mobile selected filters
+  .mobile-selected {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Selected filter buttons
+  .selected-filter-btn {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    svg, img {
+      color: var(--text-main) !important;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // View toggle icons
+  .preview-icon {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    &.active-style {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+    }
+
+    svg {
+      color: inherit !important;
+    }
+  }
+
+  // Pagination wrapper
+  .paginate-wrapper {
+    background-color: transparent !important;
+  }
+
+  // Native ads
+  .native-ad {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Recommended title
+  .recommended-title {
+    color: var(--text-main) !important;
+  }
+
+  // Link list (category links)
+  .link-list {
+    background-color: var(--bg-card) !important;
+
+    a {
+      color: var(--text-muted) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    li {
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      div {
+        color: var(--text-main) !important;
+      }
+
+      .last {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Carousel bullets
+  .bullets {
+    background-color: transparent !important;
+
+    .active-bullet {
+      background-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Loading wrapper
+  .loading-wrapper {
+    background-color: transparent !important;
+  }
+
+  // Condition listing
+  .condition-listing {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    // Labels inside condition listing (Stanje oglasa, Datum objave)
+    .new-wrap.label-wrap {
+      background-color: transparent !important;
+      color: var(--text-muted) !important;
+      border: none !important;
+    }
+  }
+
+  // Cars filter
+  .cars-filter {
+    background-color: transparent !important;
+  }
+
+  // Cities filter
+  .cities {
+    background-color: transparent !important;
+  }
+
+  // Close icon in filters
+  .sortGroupFilter img[src*="close.svg"] {
+    filter: brightness(0) invert(1);
+  }
+
+  // Central section
+  .central {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Overflow inner
+  .overflow-inner {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Wrap container
+  .wrap {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Border gray 100 dividers
+  .pretraga-page .border-gray-100,
+  .pretraga-page .bg-gray-100 {
+    border-color: var(--border-color) !important;
+    background-color: var(--border-color) !important;
+  }
+
+  // Flex containers with white bg
+  .pretraga-page .bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Text gray colors
+  .pretraga-page .text-gray-400 {
+    color: var(--text-muted) !important;
+  }
+
+  // Hover bg gray
+  .pretraga-page .hover\:bg-gray-100:hover {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Case slider
+  .case-slider__image {
+    background-color: var(--bg-card) !important;
+  }
+
+  .case-slider__navigation {
+    background-color: transparent !important;
+  }
+
+  // Custom swiper
+  .custom-swiper {
+    background-color: transparent !important;
+  }
+
+  // Artikli container
+  .artikli {
+    background-color: var(--bg-main) !important;
+  }
+}
+
+// ===========================================
+// PROFILE PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Profile container
+  .profile-h {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Listing toolbar (mobile)
+  .listing-toolbar {
+    background-color: var(--bg-card) !important;
+
+    button {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      svg {
+        color: var(--text-main) !important;
+      }
+    }
+
+    img[src*="chevron"] {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Profile section
+  #profil {
+    background-color: var(--bg-card) !important;
+
+    .username {
+      color: var(--text-main) !important;
+    }
+
+    // Location
+    .text-sm {
+      color: var(--text-muted) !important;
+
+      span {
+        color: var(--text-main) !important;
+      }
+    }
+
+    img[src*="location"] {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Phone and Message buttons
+  .profile-h button {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    p {
+      color: var(--text-main) !important;
+    }
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // Information section
+  .profile-h {
+    h1 {
+      color: var(--text-main) !important;
+    }
+
+    label {
+      color: var(--text-muted) !important;
+
+      &.font-semibold {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Border colors
+    .border-gray-50,
+    .border-b {
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  // Modal overlay
+  .v--modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  // Modal box
+  .v--modal-box,
+  .v--modal {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Modal header
+  .modal-header {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+
+    svg {
+      color: var(--text-main) !important;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Modal content
+  .modal-content {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Custom list in modal
+  .custom-list {
+    background-color: var(--bg-card) !important;
+
+    &.checkbox {
+      background-color: var(--bg-card) !important;
+    }
+
+    li {
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &.active {
+        background-color: var(--bg-elevated) !important;
+        color: var(--accent-primary) !important;
+
+        &:after {
+          filter: brightness(0) invert(1) !important;
+        }
+      }
+    }
+  }
+
+  // Article filters dropdown
+  .article-filters-new,
+  .sortGroupFilter.multiple {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // New wrap labels inside filters
+  .new-wrap {
+    color: var(--text-main) !important;
+  }
+
+  // Sort dropdown with white bg
+  .sortGroupFilter.bg-white,
+  .sortGroupFilter[class*="bg-white"] {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Sort dropdown buttons
+  .sortGroupFilter button[type="button"] {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    span {
+      color: var(--text-main) !important;
+    }
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Sort section headers
+  .sortGroupFilter .text-gray-400,
+  .sortGroupFilter .uppercase {
+    color: var(--text-muted) !important;
+  }
+
+  // Sort dropdown text colors
+  .sortGroupFilter .text-gray-800,
+  .sortGroupFilter .text-gray-900,
+  .sortGroupFilter .text-gray-700,
+  .sortGroupFilter .text-gray-600 {
+    color: var(--text-main) !important;
+  }
+
+  .sortGroupFilter .text-gray-300 {
+    color: var(--text-muted) !important;
+  }
+
+  // Hover states in sort dropdown
+  .sortGroupFilter .hover\:bg-gray-50:hover,
+  .sortGroupFilter .hover\:bg-gray-100:hover {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Dividers in sort dropdown
+  .sortGroupFilter .h-px.bg-gray-100,
+  .sortGroupFilter .bg-gray-100 {
+    background-color: var(--border-color) !important;
+  }
+
+  // Border in sort dropdown
+  .sortGroupFilter .border-gray-100 {
+    border-color: var(--border-color) !important;
+  }
+
+  // Inner white bg in sort
+  .sortGroupFilter .bg-white.-mx-3,
+  .sortGroupFilter > .bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Close button in sort dropdown
+  .sortGroupFilter button[aria-label="Zatvori"] {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+}
+
+// ===========================================
+// MESSAGING PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main messaging container with Tailwind bg
+  .bg-\[\#f1f4f5\] {
+    background-color: var(--bg-main) !important;
+  }
+
+  // White background panels
+  .bg-\[\#fff\] {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Conversation list sidebar
+  .conversation-list {
+    background-color: var(--bg-card) !important;
+  }
+
+  .conversation-list-header {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Messages input wrapper
+  .messages-input-wrapper {
+    background-color: var(--bg-card) !important;
+
+    input,
+    textarea {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Conversation items
+  .main-box {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  // Conversation block
+  .conversation-block {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Chat area
+  .chatbox-inner {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Info wrapper in chat
+  .info-wrapper {
+    background-color: var(--bg-elevated) !important;
+    box-shadow: none !important;
+
+    h2 {
+      color: var(--text-main) !important;
+    }
+
+    ul {
+      color: var(--text-main) !important;
+
+      li {
+        color: var(--text-main) !important;
+      }
+    }
+
+    a {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Tab buttons - active state (teal color)
+  .bg-\[\#22E5DB\] {
+    background-color: var(--accent-primary) !important;
+    color: #000 !important;
+  }
+
+  // Tab buttons - inactive state
+  button.bg-\[\#fff\],
+  [class*="bg-\[\#fff\]"] {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Custom block (message preview)
+  .custom-block {
+    color: var(--text-main) !important;
+
+    &.read {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Active/selected conversation
+  .bg-\[\#E9FBFB\] {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Error/empty state
+  .error {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Not found image container
+  .not-found {
+    filter: brightness(0.8) !important;
+  }
+
+  // Loading wrapper
+  .loading-wrapper {
+    background-color: var(--bg-card) !important;
+  }
+
+  .loader-overlay {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  // Warning message (has inline styles that need overriding)
+  .warning-message {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    h3 {
+      color: var(--text-main) !important;
+    }
+
+    .content {
+      color: var(--text-main) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      a {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Gray backgrounds in messaging
+  .bg-gray-50 {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Border colors
+  .border-gray-100,
+  .border-gray-200 {
+    border-color: var(--border-color) !important;
+  }
+
+  // Text colors
+  .text-black {
+    color: var(--text-main) !important;
+  }
+
+  .text-gray-500 {
+    color: var(--text-muted) !important;
+  }
+
+  // Shadow card (avatar shadow)
+  .shadow-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  // Content area
+  .content {
+    color: var(--text-main) !important;
+  }
+
+  // Spinner
+  .spin {
+    border-color: var(--border-color) !important;
+    border-top-color: var(--accent-primary) !important;
+  }
+
+  // Chatbox main wrapper (questions/pitanja tab)
+  .chatbox-main-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    &.active-chat {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  // Message avatar background
+  .message-avatar {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Message user title
+  .message-user {
+    color: var(--text-main) !important;
+  }
+
+  // Date preview text
+  .text-preview.date {
+    color: var(--text-muted) !important;
+  }
+
+  // Message preview text
+  p.last {
+    color: var(--text-muted) !important;
+  }
+
+  // User name container
+  .user-name {
+    color: var(--text-main) !important;
+  }
+
+  // Search inner container
+  .search-inner {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Load more button
+  .load-more-custom {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  // Border gray 300
+  .border-gray-300 {
+    border-color: var(--border-color) !important;
+  }
+
+  // Conversation details container
+  #conversation-details-container {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Conversation details header
+  .conversation-details-header {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    h2 {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Finished listing notice
+  .finished-listing {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+  }
+
+  // User contact section (phone button)
+  .user-contact {
+    background-color: var(--bg-card) !important;
+
+    button {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      img {
+        filter: brightness(0) invert(0.8) !important;
+      }
+    }
+  }
+
+  // Rest articles wrapper (other listings from user)
+  .rest-articles-wrapper {
+    background-color: var(--bg-card) !important;
+
+    .rest-articles-user {
+      .listing-card {
+        background-color: var(--bg-elevated) !important;
+        border: 1px solid var(--border-color) !important;
+      }
+
+      .content-wrap {
+        background-color: var(--bg-elevated) !important;
+
+        &.bg-sponsored {
+          background-color: var(--bg-elevated) !important;
+        }
+      }
+    }
+  }
+
+  // General buttons in listing sections
+  .rest-articles-wrapper,
+  .flex.flex-col.p-md {
+    > button,
+    button.mt-md {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      &:hover {
+        background-color: var(--bg-card) !important;
+      }
+    }
+  }
+
+
+  // Listing cards general (for recommended listings section)
+  .listing-card {
+    background-color: var(--bg-elevated) !important;
+
+    .content-wrap {
+      background-color: var(--bg-elevated) !important;
+
+      &.bg-sponsored {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      .main-heading {
+        color: var(--text-main) !important;
+      }
+
+      .state {
+        color: var(--text-muted) !important;
+      }
+
+      .standard-tag {
+        background-color: transparent !important;
+        color: var(--text-muted) !important;
+      }
+
+      .price-wrap {
+        background-color: transparent !important;
+
+        span {
+          color: var(--text-main) !important;
+        }
+
+        .discount {
+          color: var(--text-muted) !important;
+        }
+
+        .discounted-price {
+          color: var(--accent-primary) !important;
+        }
+
+        .text-xs {
+          color: var(--text-muted) !important;
+        }
+      }
+    }
+  }
+
+  // ===========================================
+  // PROFILE CREDITS PAGE
+  // ===========================================
+
+  // Credits page wrapper
+  .olx-credit-wrapper {
+    background-color: var(--bg-main) !important;
+  }
+
+  .credits-wrap {
+    background-color: transparent !important;
+
+    > .p-md.bg-white {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  // Payments list
+  .payments {
+    background-color: transparent !important;
+
+    li {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      &:nth-child(odd) {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      .list-wrapper {
+        background-color: transparent !important;
+
+        .text-gray-500 {
+          color: var(--text-muted) !important;
+        }
+
+        .font-semibold {
+          color: var(--text-main) !important;
+        }
+
+        p {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      .bottom-wrapper {
+        background-color: transparent !important;
+
+        label {
+          color: var(--text-muted) !important;
+        }
+      }
+    }
+  }
+
+  // Credit box sidebar
+  .box {
+    .counter {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Desktop sticky sidebar
+  .desktop-sticky {
+    background-color: var(--bg-card) !important;
+  }
+
+  // Pagination wrapper
+  .paginate-wrapper {
+    background-color: transparent !important;
+  }
+
+  .olx-pagination-wrapper {
+    background-color: transparent !important;
+
+    button {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      img {
+        filter: brightness(0) invert(0.8) !important;
+      }
+    }
+
+    ul {
+      li {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-main) !important;
+        border-color: var(--border-color) !important;
+
+        &.active {
+          background-color: var(--accent-primary) !important;
+          color: #000 !important;
+        }
+      }
+    }
+  }
+
+  // ===========================================
+  // CREDIT CHECKOUT PAGE
+  // ===========================================
+
+  // Tabs navigation
+  .tabs {
+    background-color: transparent !important;
+
+    ul {
+      background-color: transparent !important;
+
+      li {
+        background-color: transparent !important;
+        color: var(--text-main) !important;
+        border: none !important;
+
+        a {
+          color: var(--text-main) !important;
+        }
+
+        &:hover:not(.active) {
+          a {
+            color: var(--accent-primary) !important;
+          }
+        }
+
+        &.active {
+          background-color: transparent !important;
+          border-bottom: 2px solid var(--accent-primary) !important;
+
+          a {
+            color: var(--accent-primary) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Payment tabs content
+  .payment-tabs-content {
+    background-color: transparent !important;
+
+    .section-title {
+      color: var(--text-main) !important;
+    }
+
+    // White card container (Uplatnicom tab)
+    .p-md.rounded-md.bg-white {
+      background-color: var(--bg-card) !important;
+
+      .font-semibold {
+        color: var(--text-main) !important;
+      }
+
+      ul {
+        li {
+          color: var(--text-main) !important;
+        }
+      }
+    }
+
+    // Custom info box
+    .custom-info {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      .text-content {
+        p {
+          color: var(--text-main) !important;
+        }
+      }
+
+      .text-blue-400 {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Monri payment form (Karticom tab)
+  .monri-wrap {
+    background-color: transparent !important;
+
+    form {
+      border-color: var(--border-color) !important;
+
+      label {
+        color: var(--text-main) !important;
+      }
+
+      .form-row {
+        background-color: transparent !important;
+      }
+
+      #card-element {
+        background-color: var(--bg-elevated) !important;
+        border-radius: 6px !important;
+      }
+
+      button {
+        background-color: var(--accent-primary) !important;
+        color: #000 !important;
+      }
+
+      .checkbox {
+        label,
+        .cce-remember-card-label {
+          color: var(--text-main) !important;
+        }
+
+        input[type="checkbox"],
+        .cce-remember-card-checkbox {
+          accent-color: var(--accent-primary) !important;
+        }
+      }
+    }
+
+
+    .acceptable-cards {
+      background-color: transparent !important;
+    }
+
+    .form-data {
+      background-color: transparent !important;
+
+      > span {
+        color: var(--text-main) !important;
+      }
+
+      .new-wrap {
+        h2 {
+          color: var(--text-main) !important;
+        }
+      }
+
+      input {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-main) !important;
+        border-color: var(--border-color) !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+        }
+
+        &:disabled {
+          background-color: var(--bg-main) !important;
+          color: var(--text-muted) !important;
+        }
+      }
+
+      .text-xs {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Credit buttons wrapper
+  .btn-wrapper {
+    background-color: transparent !important;
+  }
+
+  // Credit option buttons
+  .btn-credit {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    .circle {
+      background-color: var(--bg-main) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .price-wrap {
+      background-color: transparent !important;
+
+      .price {
+        color: var(--text-main) !important;
+      }
+
+      .credits {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    .bonus {
+      color: var(--accent-primary) !important;
+    }
+
+    &:hover {
+      border-color: var(--accent-primary) !important;
+    }
+
+    &.active,
+    &.selected {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--accent-primary) !important;
+      border-width: 2px !important;
+
+      .circle {
+        background-color: var(--accent-primary) !important;
+        border-color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Shop packages (Paketi tab)
+  .shop-package {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    .disabled-overlay {
+      background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .tooltip {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .circle {
+      background-color: var(--bg-main) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .price-wrap {
+      background-color: transparent !important;
+
+      .price {
+        color: var(--text-main) !important;
+      }
+
+      .old-price {
+        color: var(--text-muted) !important;
+      }
+
+      .total {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    .font-semibold {
+      color: var(--accent-primary) !important;
+    }
+
+    &:hover:not([disabled]) {
+      border-color: var(--accent-primary) !important;
+    }
+
+    &.active,
+    &.selected {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--accent-primary) !important;
+
+      .circle {
+        background-color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Listing preview in Pitanja tab
+  .listing-preview {
+    background-color: var(--bg-card) !important;
+
+    a {
+      color: var(--text-main) !important;
+    }
+
+    p {
+      color: var(--text-main) !important;
+    }
+
+    .text-gray-500 {
+      color: var(--text-main) !important;
+    }
+
+    .text-gray-600 {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Username wrap
+  .username-wrap {
+    color: var(--text-main) !important;
+  }
+
+  // Listing box mobile (item preview in header)
+  .listing-box-mobile {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+
+    .inner {
+      background-color: transparent !important;
+
+      h1 {
+        color: var(--text-main) !important;
+      }
+
+      p {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Messages icons (action buttons)
+  .messages-icons {
+    button {
+      background-color: transparent !important;
+
+      img {
+        filter: brightness(0) invert(0.8) !important;
+      }
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+    }
+  }
+
+  // Custom tooltip
+  .custom-tooltip {
+    .tooltip-wrapper {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+
+      span {
+        color: var(--text-main) !important;
+      }
+    }
+  }
+
+  // Desktop delete modal
+  .desktop-delete-modal {
+    background-color: var(--bg-card) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+
+    button {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-main) !important;
+      }
+    }
+  }
+
+  // Tag wrapper modal
+  .tag-wrapper {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .tag-wrapper-inner {
+    background-color: var(--bg-card) !important;
+
+    .header {
+      border-color: var(--border-color) !important;
+
+      h3 {
+        color: var(--text-main) !important;
+      }
+
+      img {
+        filter: brightness(0) invert(1) !important;
+      }
+    }
+
+    label {
+      color: var(--text-muted) !important;
+    }
+
+    input {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .no-results {
+      h3 {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // Conversation main area
+  .conversation-main {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Message display container
+  #messageDisplay {
+    background-color: var(--bg-main) !important;
+
+    &.test {
+      background-color: var(--bg-main) !important;
+    }
+  }
+
+  // Message box
+  .message-box {
+    background-color: transparent !important;
+
+    .bubble {
+      background-color: transparent !important;
+
+      &.received .content-message {
+        background-color: var(--bg-card) !important;
+        border: 1px solid var(--border-color) !important;
+      }
+
+      &.sent .content-message {
+        background-color: var(--bg-elevated) !important;
+        border: 1px solid var(--border-color) !important;
+      }
+    }
+
+    .content-message {
+      color: var(--text-main) !important;
+
+      .msg {
+        color: var(--text-main) !important;
+      }
+
+      .date {
+        color: var(--text-muted) !important;
+      }
+
+      // Message status icon (seen checkmark)
+      .message-status {
+        filter: brightness(0) invert(0.6) !important;
+      }
+    }
+  }
+
+  // Bubble general styling - keep transparent, content-message has the background
+  .bubble {
+    background-color: transparent !important;
+  }
+
+  // Questions tab (Pitanja) conversation section
+  #messageDisplay.admin {
+    background-color: var(--bg-main) !important;
+  }
+
+  .question-wrap {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    h1 {
+      color: var(--text-main) !important;
+    }
+
+    .color-date {
+      color: var(--text-muted) !important;
+    }
+
+    .q-text {
+      color: var(--text-main) !important;
+    }
+
+    .delete {
+      button img {
+        filter: brightness(0) invert(0.8) !important;
+      }
+    }
+  }
+
+  // Q wrap (question inner wrapper)
+  .q-wrap {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Answer section
+  .answer {
+    background-color: transparent !important;
+
+    &.bg-f7f {
+      background-color: transparent !important;
+    }
+  }
+
+  .answer-inner {
+    background-color: var(--bg-main) !important;
+
+    .color-heading {
+      color: var(--text-main) !important;
+    }
+
+    .color-date.answer {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Reply form in questions
+  .question-wrap {
+    form {
+      textarea {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-main) !important;
+        border-color: var(--border-color) !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      button[type="submit"] {
+        background-color: var(--accent-primary) !important;
+        color: #000 !important;
+
+        p {
+          color: #000 !important;
+        }
+      }
+    }
+  }
+
+  // Input wrapper
+  .input-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    .wrap-box {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Emoji, sticker, photo buttons
+    button img {
+      filter: brightness(0) invert(0.8) !important;
+    }
+
+    .input-wrapper-image {
+      background-color: transparent !important;
+    }
+
+    // Custom textarea
+    .custom-textarea {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Send button
+    button[type="submit"] {
+      background-color: var(--accent-primary) !important;
+      color: #000 !important;
+
+      p {
+        color: #000 !important;
+      }
+    }
+  }
+}
+
+// ===========================================
+// SIDENAV (Logged-in users sidebar)
+// ===========================================
+html.olx-dark-mode {
+  .sidenav {
+    background-color: var(--bg-card) !important;
+
+    .modal-header {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      svg {
+        color: var(--text-main) !important;
+      }
+    }
+
+    .nav-list {
+      background-color: transparent !important;
+
+      // Credit tile
+      .credit-tile {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .credit-title {
+          color: var(--text-main) !important;
+        }
+
+        .credit-badge {
+          background-color: var(--accent-primary) !important;
+          color: #000 !important;
+        }
+      }
+
+      // Shop upgrade card
+      .shop-upgrade-card {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .card-texts {
+          .title {
+            color: var(--text-main) !important;
+          }
+
+          .subtitle {
+            color: var(--text-muted) !important;
+          }
+        }
+      }
+
+      // Section titles
+      .list-title {
+        color: var(--text-muted) !important;
+        background-color: transparent !important;
+      }
+
+      // Navigation links
+      a {
+        color: var(--text-main) !important;
+        background-color: transparent !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+        }
+
+        span {
+          color: var(--text-main) !important;
+        }
+
+        img {
+          filter: brightness(0) invert(0.8) !important;
+        }
+      }
+
+      .link {
+        background-color: transparent !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+        }
+      }
+
+      // Unread messages badge
+      .unread-messages {
+        background-color: #ef4444 !important;
+        color: #fff !important;
+      }
+
+      // Logout link
+      .logout {
+        border-color: var(--border-color) !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+        }
+      }
+    }
+  }
+
+  // Sidenav container overlay
+  .sidenav-container {
+    &:not(.closed) {
+      background-color: rgba(0, 0, 0, 0.5) !important;
+    }
+  }
+}
+
+// ===========================================
+// LOGIN / REGISTER / AUTH PAGES
+// ===========================================
+html.olx-dark-mode {
+  // Auth page background
+  .flex.items-center.justify-center.bg {
+    background-color: var(--bg-main) !important;
+  }
+
+  // Form card wrapper
+  .form-wrapper {
+    background-color: var(--bg-card) !important;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4) !important;
+
+    // OLX logo - invert so it's visible on dark
+    > a img[alt="olx-logo"] {
+      filter: brightness(0) invert(1) !important;
+    }
+
+    // Section title (Prijava / Registracija)
+    .section-title {
+      color: var(--text-main) !important;
+    }
+
+    // Input groups
+    .overall {
+      .new-wrap,
+      label {
+        h2 {
+          color: var(--text-main) !important;
+        }
+      }
+
+      input {
+        background-color: var(--bg-elevated) !important;
+        color: #FFFFFF !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 6px !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+          -webkit-text-fill-color: var(--text-muted) !important;
+          opacity: 1 !important;
+        }
+
+        &:focus {
+          border-color: var(--accent-primary) !important;
+          outline: none !important;
+          box-shadow: 0 0 0 2px rgba(77, 182, 172, 0.25) !important;
+        }
+      }
+    }
+
+    // Forgot password link
+    .forgot a,
+    a[aria-label="forgot-password"] {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+
+    // Google sign-in button - preserve original look
+    button.border-\[\#002f34\] {
+      background-color: #fff !important;
+      border-color: #002f34 !important;
+
+      span {
+        color: #1f2937 !important;
+      }
+
+      img {
+        filter: none !important;
+      }
+
+      &:hover {
+        background-color: #f9fafb !important;
+      }
+    }
+
+    // Submit button
+    button[style*="background:#002f34"],
+    button[style*="background-color:#002f34"],
+    button[style*="background: #002f34"] {
+      background-color: var(--accent-primary) !important;
+      color: #121212 !important;
+      border: none !important;
+      border-radius: 6px !important;
+      transition: background-color 0.2s ease !important;
+
+      p {
+        color: #121212 !important;
+      }
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+      }
+    }
+
+    // Divider "ili se prijavite sa"
+    .border-gray-200 {
+      border-color: var(--border-color) !important;
+    }
+
+    span.bg-white {
+      background-color: var(--bg-card) !important;
+      color: var(--text-muted) !important;
+    }
+
+    // Bottom register/login link section
+    .bottom {
+      span {
+        color: var(--text-muted) !important;
+      }
+
+      a {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+
+        span {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+
+  // Back arrow button
+  .back-arrow {
+    color: var(--text-main) !important;
+
+    img {
+      filter: brightness(0) invert(0.9) !important;
+    }
+  }
+}
+
+// ===========================================
+// PROMOTIONS / ORDERS / SAVED PAGE
+// ===========================================
+html.olx-dark-mode {
+  .promotions,
+  .orders,
+  .custom-h {
+    background-color: var(--bg-main) !important;
+
+    // Tabs on promotions page
+    .tabs {
+      background-color: var(--bg-card) !important;
+
+      ul {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+      }
+
+      li {
+        a {
+          color: var(--text-muted) !important;
+
+          &:hover {
+            color: var(--text-main) !important;
+          }
+
+          &.nuxt-link-exact-active {
+            color: var(--accent-primary) !important;
+            border-color: var(--accent-primary) !important;
+          }
+        }
+      }
+    }
+
+    // Promotions content area
+    .articles-bg {
+      background-color: var(--bg-main) !important;
+    }
+
+    // Promotion tables (standard HTML tables)
+    table {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+
+      thead {
+        background-color: var(--bg-elevated) !important;
+
+        tr {
+          background-color: var(--bg-elevated) !important;
+          border-color: var(--border-color) !important;
+        }
+
+        th {
+          color: var(--text-main) !important;
+          background-color: var(--bg-elevated) !important;
+          border-color: var(--border-color) !important;
+        }
+      }
+
+      tbody {
+        tr {
+          background-color: var(--bg-card) !important;
+          border-color: var(--border-color) !important;
+          color: var(--text-main) !important;
+
+          // Alternating rows - use elevated bg instead of white
+          &:nth-child(even) {
+            background-color: var(--bg-elevated) !important;
+          }
+
+          &:hover {
+            background-color: #363636 !important;
+          }
+
+          td {
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+          }
+        }
+      }
+
+      tfoot {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        td, th {
+          color: var(--text-main) !important;
+          border-color: var(--border-color) !important;
+        }
+      }
+    }
+
+    // Div-based table/list rows (common OLX pattern)
+    .grid,
+    .flex[class*="border"] {
+      border-color: var(--border-color) !important;
+    }
+
+    // Promotion card/row items
+    [class*="promotion"],
+    [class*="promo-item"],
+    [class*="promo-row"] {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    // Generic alternating row divs (white rows in light theme)
+    > .px-md .flex-col > div,
+    .articles-bg .flex-col > div {
+      color: var(--text-main) !important;
+
+      &:nth-child(even) {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &:nth-child(odd) {
+        background-color: var(--bg-card) !important;
+      }
+
+      // All text inside rows
+      span, p, a, h1, h2, h3, h4, h5, h6, div, small, strong, b {
+        color: var(--text-main) !important;
+      }
+
+      // Muted / secondary text
+      .text-gray-500,
+      .text-gray-600,
+      .text-gray-700,
+      .text-slate-500,
+      .text-slate-600 {
+        color: var(--text-muted) !important;
+      }
+
+      // Links
+      a {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+    }
+
+    // White background overrides within promotions
+    .bg-white {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Any bg-f7f or light gray backgrounds
+    .bg-f7f,
+    .bg-\[\#f7f7f7\],
+    .bg-\[\#f1f4f5\],
+    .bg-gray-50,
+    .bg-gray-100 {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    // Text color overrides
+    .text-black,
+    .text-gray-900,
+    .text-slate-900,
+    .text-\[\#002F34\] {
+      color: var(--text-main) !important;
+    }
+
+    // Loading spinner
+    .loading-wrapper {
+      .spin {
+        filter: brightness(0) invert(0.8) !important;
+      }
+    }
+
+    // Status badges / labels
+    [class*="badge"],
+    [class*="status"] {
+      border-color: var(--border-color) !important;
+    }
+
+    // Chart.js canvas area
+    canvas {
+      filter: brightness(0.9) !important;
+    }
+
+    // Saved searches (Pretrage tab) - list/table of saved searches
+    .saved-search,
+    [class*="saved-search"],
+    [class*="search-item"] {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+    }
+
+    // Saved users (Korisnici tab)
+    .saved-user,
+    [class*="saved-user"],
+    [class*="user-item"] {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-main) !important;
+    }
+
+    // Generic content cards within articles-bg
+    .articles-bg {
+      .flex-col > .flex,
+      .flex-col > div {
+        border-color: var(--border-color) !important;
+      }
+
+      // Any white card containers
+      .bg-white,
+      [class*="bg-white"] {
+        background-color: var(--bg-card) !important;
+      }
+
+      // Ensure all text is visible
+      p, span, h1, h2, h3, h4, h5, h6, a, div, small, strong, label {
+        color: var(--text-main) !important;
+      }
+
+      // Muted secondary text
+      .text-gray-400,
+      .text-gray-500,
+      .text-gray-600 {
+        color: var(--text-muted) !important;
+      }
+
+      // Links
+      a:not([class*="nuxt-link"]) {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+
+      // Delete / action buttons
+      button {
+        border-color: var(--border-color) !important;
+        color: var(--text-main) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
+// PRO STATISTICS PAGE
+// ===========================================
+html.olx-dark-mode {
+  .charts-wrapper {
+    background-color: var(--bg-card) !important;
+
+    .section-title {
+      color: var(--text-main) !important;
+    }
+
+    h3 {
+      color: var(--text-muted) !important;
+    }
+  }
+}
+
+// ===========================================
+// OLX PRO PAGE / OLX SHOP PACKAGES PAGE
+// ===========================================
+html.olx-dark-mode {
+  .pro-page,
+  .shopovi-page {
+    background-color: var(--bg-main) !important;
+
+    // Sidebar tab navigation
+    .tab-list {
+      .tab-item {
+        color: var(--text-muted) !important;
+        border-color: var(--border-color) !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+          color: var(--text-main) !important;
+        }
+
+        &.active {
+          color: var(--accent-primary) !important;
+          background-color: var(--bg-elevated) !important;
+        }
+
+        .chev {
+          color: inherit !important;
+        }
+      }
+    }
+
+    // Sidebar brand section
+    .brand {
+      .brand-kicker,
+      .brand-title {
+        color: var(--text-main) !important;
+      }
+
+      .brand-subtitle {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // CTA section
+    .cta {
+      .cta-note {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Info wrap text (Shop packages page)
+    .info-wrap {
+      h2, p {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Hero section
+    .hero {
+      .hero-title {
+        color: var(--text-main) !important;
+      }
+
+      .hero-text {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Feature cards
+    .feature-card {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      .feature-title {
+        color: var(--text-main) !important;
+      }
+
+      .feature-text {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Comparison table
+    .compare-card {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      .compare-title {
+        color: var(--text-main) !important;
+      }
+
+      .compare-subtitle {
+        color: var(--text-muted) !important;
+      }
+
+      // Plan headers
+      .plan-head {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .plan-name,
+        .plan-price {
+          color: var(--text-main) !important;
+        }
+
+        &.is-pro {
+          background-color: rgba(77, 182, 172, 0.15) !important;
+          border-color: var(--accent-primary) !important;
+
+          .plan-name {
+            color: var(--accent-primary) !important;
+          }
+        }
+      }
+
+      // Table rows
+      .compare-row {
+        border-color: var(--border-color) !important;
+
+        &:nth-child(even) {
+          background-color: var(--bg-elevated) !important;
+        }
+
+        .compare-cell {
+          color: var(--text-main) !important;
+          border-color: var(--border-color) !important;
+        }
+
+        .compare-cell--label {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      // Footer note
+      .compare-foot {
+        border-color: var(--border-color) !important;
+
+        p {
+          color: var(--text-muted) !important;
+        }
+      }
+    }
+
+    // FAQ section
+    .faq-card {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      .qa {
+        border-color: var(--border-color) !important;
+
+        .qa-q {
+          color: var(--text-main) !important;
+        }
+
+        .qa-a {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      .link {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+    }
+  }
+}
+
+// ===========================================
+// CART PAGE
+// ===========================================
+html.olx-dark-mode {
+  .cart-wrapper {
+    background-color: var(--bg-main) !important;
+
+    .cart-wrapper-inner {
+      background-color: var(--bg-card) !important;
+    }
+
+    .custom-info {
+      background-color: var(--bg-card) !important;
+
+      .text-content,
+      .text-content p {
+        color: var(--text-main) !important;
+      }
+
+      label {
+        color: var(--text-main) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
+// SETTINGS / PROFILE PAGES
+// ===========================================
+html.olx-dark-mode {
+  .main-settings-wrapper {
+    background-color: var(--bg-main) !important;
+
+    // Breadcrumbs
+    .breadcrumbs {
+      color: var(--text-muted) !important;
+
+      a {
+        color: var(--text-muted) !important;
+
+        &:hover {
+          color: var(--accent-primary) !important;
+        }
+      }
+
+      span {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Section title
+    .section-title {
+      color: var(--text-main) !important;
+
+      &.border-b {
+        border-color: var(--border-color) !important;
+      }
+    }
+
+    // General Tailwind border color overrides
+    .border-gray-100,
+    .border-gray-200,
+    .border-gray-300 {
+      border-color: var(--border-color) !important;
+    }
+
+    // Sidebar navigation
+    .sidenav {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      ul {
+        li {
+          border-color: var(--border-color) !important;
+
+          a {
+            color: var(--text-main) !important;
+            background-color: var(--bg-card) !important;
+
+            &:hover {
+              background-color: var(--bg-elevated) !important;
+              color: var(--accent-primary) !important;
+            }
+
+            &.active,
+            &.router-link-active,
+            &.router-link-exact-active,
+            &.nuxt-link-active,
+            &.nuxt-link-exact-active,
+            &[aria-current="page"] {
+              background-color: var(--bg-elevated) !important;
+              color: var(--accent-primary) !important;
+              border-left: 3px solid var(--accent-primary) !important;
+            }
+          }
+        }
+      }
+
+      // Shop link at bottom of sidebar
+      .shop-link {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-muted) !important;
+
+        img {
+          filter: brightness(0.9) !important;
+        }
+
+        a {
+          color: var(--accent-primary) !important;
+          background-color: transparent !important;
+
+          &:hover {
+            color: var(--accent-hover) !important;
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+
+    // Right content panel (form area)
+    > div > div.bg-white,
+    > div > div > div.bg-white,
+    div[class*="bg-white"] {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Form section headings
+    h2 {
+      color: var(--text-main) !important;
+    }
+
+    h3 {
+      color: var(--text-main) !important;
+    }
+
+    // Info and disclaimer boxes
+    .custom-info {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      &.info {
+        background-color: rgba(77, 182, 172, 0.1) !important;
+        border-color: var(--accent-primary) !important;
+      }
+
+      &.disclaimer {
+        background-color: rgba(255, 193, 7, 0.1) !important;
+        border-color: #ffc107 !important;
+      }
+
+      p, span, label {
+        color: var(--text-main) !important;
+      }
+
+      a {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+    }
+
+    // Form inputs
+    .overall {
+      label {
+        color: var(--text-main) !important;
+      }
+
+      input,
+      select,
+      textarea {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+          -webkit-text-fill-color: var(--text-muted) !important;
+          opacity: 1 !important;
+        }
+
+        &:focus {
+          border-color: var(--accent-primary) !important;
+        }
+
+        &:disabled,
+        &[disabled] {
+          background-color: var(--bg-main) !important;
+          color: var(--text-muted) !important;
+          -webkit-text-fill-color: var(--text-muted) !important;
+        }
+      }
+    }
+
+    .new-wrap {
+      label {
+        color: var(--text-main) !important;
+      }
+
+      input,
+      select,
+      textarea {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+          -webkit-text-fill-color: var(--text-muted) !important;
+          opacity: 1 !important;
+        }
+
+        &:focus {
+          border-color: var(--accent-primary) !important;
+        }
+
+        &:disabled,
+        &[disabled] {
+          background-color: var(--bg-main) !important;
+          color: var(--text-muted) !important;
+          -webkit-text-fill-color: var(--text-muted) !important;
+        }
+      }
+    }
+
+    // Toggle switch
+    .toggle {
+      color: var(--text-main) !important;
+
+      .switch {
+        .slider {
+          background-color: var(--bg-elevated) !important;
+          border: 1px solid var(--border-color) !important;
+
+          &::before {
+            background-color: var(--text-muted) !important;
+          }
+        }
+
+        input:checked + .slider {
+          background-color: var(--accent-primary) !important;
+          border-color: var(--accent-primary) !important;
+
+          &::before {
+            background-color: #fff !important;
+          }
+        }
+      }
+
+      span {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Light background sections
+    div[class*="bg-[#fdfdfd]"],
+    .bg-\[\#fdfdfd\] {
+      background-color: var(--bg-main) !important;
+    }
+
+    // Submit button
+    button[style*="background:#002f34"],
+    button[style*="background: #002f34"] {
+      background-color: var(--accent-primary) !important;
+      color: #fff !important;
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+      }
+    }
+
+    // Box wrapper (used for grouped content)
+    .box-wrapper {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      h3, h4 {
+        color: var(--text-main) !important;
+      }
+
+      p {
+        color: var(--text-muted) !important;
+      }
+
+      // Pro status box
+      .expires-at-box {
+        background-color: var(--bg-card) !important;
+
+        .custom-info.info {
+          background-color: rgba(77, 182, 172, 0.1) !important;
+          border-color: var(--accent-primary) !important;
+
+          .text-content,
+          .text-content p {
+            color: var(--text-main) !important;
+          }
+
+          label {
+            color: var(--text-main) !important;
+          }
+
+          span {
+            color: var(--text-muted) !important;
+          }
+        }
+      }
+    }
+
+    // Generic text overrides
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    label {
+      color: var(--text-main) !important;
+    }
+
+    span {
+      color: var(--text-main) !important;
+    }
+
+    // Description / helper text
+    .text-sm,
+    small {
+      color: var(--text-muted) !important;
+    }
+
+    // Links
+    a.text-blue-600,
+    a.text-blue-500,
+    a[class*="text-blue"] {
+      color: var(--accent-primary) !important;
+
+      &:hover {
+        color: var(--accent-hover) !important;
+      }
+    }
+
+    // Custom file upload button
+    .custom-file-upload {
+      background-color: var(--bg-elevated) !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-main) !important;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--accent-primary) !important;
+        border-color: var(--accent-primary) !important;
+        color: #fff !important;
+      }
+    }
+
+    // h1 headings on profile pages
+    h1 {
+      color: var(--text-main) !important;
+    }
+
+    // Generic buttons (e.g. "Kako radi OLX brza dostava?")
+    button.mt-sm,
+    button:not([style*="background"]) {
+      background-color: var(--bg-elevated) !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-main) !important;
+
+      &:hover {
+        background-color: var(--accent-primary) !important;
+        border-color: var(--accent-primary) !important;
+        color: #fff !important;
+      }
+    }
+
+    // OLX Pro settings page
+    .olx-pro.wrapper {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      .olx-pro__title {
+        color: var(--accent-primary) !important;
+      }
+
+      .olx-pro__info-title {
+        color: var(--text-main) !important;
+      }
+
+      .olx-pro__info-text {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Auto-renewal checkbox
+    .auto-renewal {
+      label {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Feature description rows (medal, statistics, etc.)
+    .wrapper {
+      .shrink-on-ios,
+      > div[class*="flex"][class*="border-b"] {
+        border-color: var(--border-color) !important;
+        background-color: var(--bg-card) !important;
+
+        h1 {
+          color: var(--text-main) !important;
+        }
+
+        p {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      // Comparison table
+      .info-wrapper {
+        li {
+          color: var(--text-main) !important;
+        }
+      }
+
+      .info-title {
+        color: var(--text-main) !important;
+      }
+
+      .info-subtitle {
+        color: var(--text-muted) !important;
+      }
+
+      .items,
+      .classic-profile,
+      .pro-items {
+        background-color: var(--bg-card) !important;
+
+        li {
+          color: var(--text-main) !important;
+          border-color: var(--border-color) !important;
+        }
+      }
+
+      .pro-items {
+        background-color: rgba(77, 182, 172, 0.08) !important;
+      }
+
+      // Bottom info message
+      .message-info {
+        border-color: var(--border-color) !important;
+
+        p {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      // Q&A section
+      .questions-and-answers {
+        .questions-and-answers__title {
+          color: var(--text-main) !important;
+        }
+
+        .questions-and-answers__answer {
+          color: var(--text-muted) !important;
+
+          a {
+            color: var(--accent-primary) !important;
+
+            &:hover {
+              color: var(--accent-hover) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ===========================================
+// PUBLISH LISTING MODAL
+// ===========================================
+html.olx-dark-mode {
+  .v--modal-overlay {
+    .v--modal-background-click {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .v--modal-box.v--modal {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      // Modal header
+      .modal-header {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+
+        p {
+          color: var(--text-main) !important;
+        }
+
+        svg {
+          color: var(--text-muted) !important;
+
+          &:hover {
+            color: var(--text-main) !important;
+          }
+        }
+      }
+
+      // Modal content
+      .modal-content {
+        background-color: var(--bg-card) !important;
+      }
+
+      // Category cards
+      .catCard {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .catCard__inner {
+          background-color: var(--bg-elevated) !important;
+        }
+
+        .catCard__title {
+          color: var(--text-main) !important;
+        }
+
+        .catCard__sub {
+          color: var(--text-muted) !important;
+        }
+
+        .catCard__chev {
+          color: var(--text-muted) !important;
+        }
+
+        &:hover {
+          background-color: var(--bg-main) !important;
+
+          .catCard__inner {
+            background-color: var(--bg-main) !important;
+          }
+
+          .catCard__chev {
+            color: var(--accent-primary) !important;
+          }
+        }
+      }
+
+      // Last item ("Objavite nešto drugo")
+      .last-item {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .group-avatar-wrapper {
+          background-color: var(--bg-elevated) !important;
+
+          &:hover {
+            background-color: var(--bg-main) !important;
+          }
+        }
+
+        .catCard__title {
+          color: var(--text-main) !important;
+        }
+
+        .catCard__sub {
+          color: var(--text-muted) !important;
+        }
+
+        .catCard__chev {
+          color: var(--text-muted) !important;
+        }
+      }
+
+      // Remaining listings section
+      .articles-remain {
+        .remain-card {
+          background-color: var(--bg-elevated) !important;
+          border-color: var(--border-color) !important;
+
+          .remain-head {
+            border-color: var(--border-color) !important;
+
+            h2 {
+              color: var(--text-main) !important;
+            }
+
+            p {
+              color: var(--text-muted) !important;
+            }
+          }
+
+          .remain-list {
+            .remain-item {
+              border-color: var(--border-color) !important;
+
+              .label {
+                color: var(--text-main) !important;
+              }
+
+              strong {
+                color: var(--text-main) !important;
+              }
+
+              .muted {
+                color: var(--text-muted) !important;
+              }
+            }
+          }
+
+          .remain-cta {
+            button {
+              background-color: var(--accent-primary) !important;
+
+              p {
+                color: #fff !important;
+              }
+
+              &:hover {
+                background-color: var(--accent-hover) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ===========================================
+// PUBLISH LISTING PAGE
+// ===========================================
+html.olx-dark-mode {
+  .publish-main-wrapper {
+    background-color: var(--bg-main) !important;
+
+    // Top navbar
+    .top-navbar-publish-wrapper {
+      background-color: var(--bg-card) !important;
+
+      .top-navbar-publish {
+        background-color: var(--bg-card) !important;
+      }
+
+      .topbar-inner,
+      .topbar-row {
+        background-color: var(--bg-card) !important;
+      }
+
+      .publish-topbar-card {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+
+        .ptc-title {
+          color: var(--text-main) !important;
+        }
+
+        .ptc-progress {
+          background-color: var(--bg-main) !important;
+
+          .ptc-progress__fill {
+            background-color: var(--accent-primary) !important;
+          }
+        }
+      }
+    }
+
+    // Main content area
+    .main-center {
+      .main-wrap {
+        // Step sections
+        .publish-content {
+          background-color: var(--bg-card) !important;
+          border-color: var(--border-color) !important;
+
+          // Step header
+          .pc-head {
+            background-color: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+
+            .pc-badge {
+              //background-color: var(--bg-elevated) !important;
+              //border-color: var(--border-color) !important;
+
+              .pc-badge-num {
+                color: var(--text-muted) !important;
+              }
+
+              &.is-active {
+                //background-color: var(--accent-primary) !important;
+                //border-color: var(--accent-primary) !important;
+
+                .pc-badge-num {
+                  color: #fff !important;
+                }
+              }
+            }
+
+            .pc-kicker {
+              color: var(--text-muted) !important;
+            }
+
+            .pc-title {
+              color: var(--text-main) !important;
+            }
+
+            &.is-locked {
+              opacity: 0.5;
+            }
+          }
+
+          // Step body
+          .pc-body {
+            background-color: var(--bg-card) !important;
+
+            .pc-pad,
+            .pad {
+              background-color: var(--bg-card) !important;
+            }
+          }
+
+          // Section titles
+          .section-title {
+            color: var(--text-main) !important;
+          }
+
+          // Info/warning tooltips
+          .desc-tooltip {
+            color: var(--text-muted) !important;
+
+            &.info {
+              background-color: rgba(77, 182, 172, 0.1) !important;
+              border-color: var(--accent-primary) !important;
+              color: var(--text-main) !important;
+            }
+
+            &.warning {
+              background-color: rgba(255, 193, 7, 0.1) !important;
+              border-color: #ffc107 !important;
+              color: var(--text-main) !important;
+            }
+          }
+
+          // Form inputs (overall)
+          .overall {
+            label {
+              color: var(--text-main) !important;
+            }
+
+            span {
+              color: var(--text-muted) !important;
+            }
+
+            input,
+            select,
+            textarea {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+              color: #FFFFFF !important;
+              -webkit-text-fill-color: #FFFFFF !important;
+
+              &::placeholder {
+                color: var(--text-muted) !important;
+                -webkit-text-fill-color: var(--text-muted) !important;
+                opacity: 1 !important;
+              }
+
+              &:focus {
+                border-color: var(--accent-primary) !important;
+              }
+
+              &:disabled,
+              &[disabled] {
+                background-color: var(--bg-main) !important;
+                color: var(--text-muted) !important;
+                -webkit-text-fill-color: var(--text-muted) !important;
+              }
+            }
+
+            .unit {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+              color: var(--text-muted) !important;
+            }
+          }
+
+          // Custom labels
+          .custom-label {
+            color: var(--text-main) !important;
+          }
+
+          // Description block
+          .desc-block {
+            .desc-head {
+              label {
+                color: var(--text-main) !important;
+              }
+
+              .desc-counter {
+                color: var(--text-muted) !important;
+              }
+            }
+          }
+
+          // Select/filter dropdown (sf2)
+          .sf2 {
+            .sf2__trigger {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+
+              .sf2__trigger-label {
+                color: var(--text-muted) !important;
+              }
+
+              .sf2__trigger-value {
+                color: var(--text-main) !important;
+              }
+
+              .sf2__chevron {
+                color: var(--text-muted) !important;
+              }
+            }
+
+            .sf2__panel {
+              background-color: var(--bg-card) !important;
+              border-color: var(--border-color) !important;
+
+              .sf2__panel-head {
+                background-color: var(--bg-elevated) !important;
+                border-color: var(--border-color) !important;
+
+                .sf2__panel-title {
+                  color: var(--text-main) !important;
+                }
+
+                .sf2__panel-close {
+                  color: var(--text-muted) !important;
+
+                  &:hover {
+                    color: var(--text-main) !important;
+                  }
+                }
+              }
+
+              // Search input
+              .sf2__search {
+                background-color: var(--bg-card) !important;
+                border-color: var(--border-color) !important;
+
+                .sf2__search-input {
+                  background-color: var(--bg-elevated) !important;
+                  border-color: var(--border-color) !important;
+                  color: #FFFFFF !important;
+                  -webkit-text-fill-color: #FFFFFF !important;
+
+                  &::placeholder {
+                    color: var(--text-muted) !important;
+                    -webkit-text-fill-color: var(--text-muted) !important;
+                    opacity: 1 !important;
+                  }
+
+                  &:focus {
+                    border-color: var(--accent-primary) !important;
+                  }
+                }
+              }
+
+              // Brand grid
+              .sf2__grid {
+                background-color: var(--bg-card) !important;
+
+                .sf2__pill {
+                  background-color: var(--bg-elevated) !important;
+                  border-color: var(--border-color) !important;
+                  color: var(--text-main) !important;
+
+                  .sf2__text {
+                    color: var(--text-main) !important;
+                  }
+
+                  svg {
+                    color: var(--text-muted) !important;
+                  }
+
+                  &:hover {
+                    background-color: var(--bg-main) !important;
+                    border-color: var(--accent-primary) !important;
+                  }
+
+                  &.is-selected {
+                    background-color: rgba(77, 182, 172, 0.15) !important;
+                    border-color: var(--accent-primary) !important;
+
+                    .sf2__text {
+                      color: var(--accent-primary) !important;
+                    }
+
+                    svg {
+                      color: var(--accent-primary) !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // sf__ variant (Godište, Gorivo, etc.)
+          .sf__label {
+            color: var(--text-main) !important;
+          }
+
+          .sf__panel {
+            background-color: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+
+            .sf__search {
+              background-color: var(--bg-card) !important;
+
+              .sf__search-input {
+                background-color: var(--bg-elevated) !important;
+                border-color: var(--border-color) !important;
+                color: #FFFFFF !important;
+                -webkit-text-fill-color: #FFFFFF !important;
+
+                &::placeholder {
+                  color: var(--text-muted) !important;
+                  -webkit-text-fill-color: var(--text-muted) !important;
+                  opacity: 1 !important;
+                }
+
+                &:focus {
+                  border-color: var(--accent-primary) !important;
+                }
+              }
+            }
+
+            .sf__grid {
+              background-color: var(--bg-card) !important;
+
+              .sf__pill {
+                background-color: var(--bg-elevated) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-main) !important;
+
+                .sf__text {
+                  color: var(--text-main) !important;
+                }
+
+                svg {
+                  color: var(--text-muted) !important;
+                }
+
+                &:hover {
+                  background-color: var(--bg-main) !important;
+                  border-color: var(--accent-primary) !important;
+                }
+
+                &.is-selected {
+                  background-color: rgba(77, 182, 172, 0.15) !important;
+                  border-color: var(--accent-primary) !important;
+
+                  .sf__text {
+                    color: var(--accent-primary) !important;
+                  }
+
+                  svg {
+                    color: var(--accent-primary) !important;
+                  }
+                }
+              }
+            }
+          }
+
+          // Checkbox toggles (ncf component)
+          .ncf {
+            background-color: var(--bg-elevated) !important;
+            border-color: var(--border-color) !important;
+
+            .ncf__row {
+              background-color: var(--bg-elevated) !important;
+
+              .ncf__label {
+                color: var(--text-main) !important;
+              }
+
+              .ncf__track {
+                background-color: var(--bg-main) !important;
+                border-color: var(--border-color) !important;
+              }
+
+              .ncf__thumb {
+                background-color: var(--text-muted) !important;
+                border-color: var(--border-color) !important;
+              }
+
+              .ncf__input:checked ~ .ncf__track {
+                background-color: var(--accent-primary) !important;
+                border-color: var(--accent-primary) !important;
+              }
+
+              .ncf__input:checked ~ .ncf__thumb {
+                background-color: #fff !important;
+              }
+            }
+          }
+
+          // Generic form labels
+          label {
+            color: var(--text-main) !important;
+          }
+
+          // Quill rich text editor
+          .desc-editor-wrap {
+            .quillWrapper {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+            }
+
+            .ql-toolbar.ql-snow {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+
+              .ql-stroke {
+                stroke: var(--text-muted) !important;
+              }
+
+              .ql-fill {
+                fill: var(--text-muted) !important;
+              }
+
+              .ql-picker-label {
+                color: var(--text-muted) !important;
+              }
+
+              .ql-picker-options {
+                background-color: var(--bg-card) !important;
+                border-color: var(--border-color) !important;
+
+                .ql-picker-item {
+                  color: var(--text-main) !important;
+
+                  &:hover {
+                    color: var(--accent-primary) !important;
+                  }
+                }
+              }
+
+              button:hover,
+              .ql-picker-label:hover {
+                .ql-stroke {
+                  stroke: var(--accent-primary) !important;
+                }
+
+                .ql-fill {
+                  fill: var(--accent-primary) !important;
+                }
+
+                color: var(--accent-primary) !important;
+              }
+
+              button.ql-active,
+              .ql-picker-label.ql-active {
+                .ql-stroke {
+                  stroke: var(--accent-primary) !important;
+                }
+
+                .ql-fill {
+                  fill: var(--accent-primary) !important;
+                }
+
+                color: var(--accent-primary) !important;
+              }
+            }
+
+            .ql-container.ql-snow {
+              background-color: var(--bg-elevated) !important;
+              border-color: var(--border-color) !important;
+
+              .ql-editor {
+                color: var(--text-main) !important;
+
+                &.ql-blank::before {
+                  color: var(--text-muted) !important;
+                }
+              }
+
+              .ql-tooltip {
+                background-color: var(--bg-card) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-main) !important;
+
+                input {
+                  background-color: var(--bg-elevated) !important;
+                  border-color: var(--border-color) !important;
+                  color: #FFFFFF !important;
+                }
+
+                a {
+                  color: var(--accent-primary) !important;
+                }
+              }
+            }
+          }
+
+          // Location input
+          .disabled-location {
+            background-color: var(--bg-main) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-muted) !important;
+            -webkit-text-fill-color: var(--text-muted) !important;
+          }
+
+          // Map button
+          .map-btn {
+            background-color: var(--bg-elevated) !important;
+            border-color: var(--border-color) !important;
+            color: var(--accent-primary) !important;
+
+            &:hover {
+              color: var(--accent-hover) !important;
+            }
+          }
+
+          // Availability text
+          .available {
+            color: var(--text-main) !important;
+          }
+
+          // Toggle switch
+          .switch {
+            .slider {
+              background-color: var(--bg-elevated) !important;
+              border: 1px solid var(--border-color) !important;
+
+              &::before {
+                background-color: var(--text-muted) !important;
+              }
+            }
+
+            input:checked + .slider {
+              background-color: var(--accent-primary) !important;
+              border-color: var(--accent-primary) !important;
+
+              &::before {
+                background-color: #fff !important;
+              }
+            }
+          }
+
+          // Condition listing (Novo/Korišteno)
+          .condition-listing {
+            label {
+              color: var(--text-main) !important;
+            }
+
+            .listing-state-grid {
+              .listing-state-option {
+                background-color: var(--bg-elevated) !important;
+                border-color: var(--border-color) !important;
+                color: var(--text-main) !important;
+
+                &.selected {
+                  background-color: rgba(77, 182, 172, 0.15) !important;
+                  border-color: var(--accent-primary) !important;
+                  color: var(--accent-primary) !important;
+                }
+
+                &:hover:not(.selected) {
+                  background-color: var(--bg-main) !important;
+                }
+              }
+            }
+          }
+
+          // New wrap
+          .new-wrap {
+            h4 {
+              color: var(--text-main) !important;
+            }
+          }
+
+          // Info boxes
+          .custom-info {
+            background-color: var(--bg-elevated) !important;
+            border-color: var(--border-color) !important;
+
+            &.info {
+              background-color: rgba(77, 182, 172, 0.1) !important;
+              border-color: var(--accent-primary) !important;
+            }
+
+            .text-content,
+            .text-content p {
+              color: var(--text-main) !important;
+            }
+
+            label {
+              color: var(--text-main) !important;
+            }
+          }
+
+          // Generic text
+          span {
+            color: var(--text-main) !important;
+          }
+
+          p {
+            color: var(--text-muted) !important;
+          }
+        }
+      }
+
+      // Right sidebar (listing preview)
+      .aside {
+        .pc-title {
+          color: var(--text-main) !important;
+        }
+
+        .listing-wrapper {
+          background-color: var(--bg-card) !important;
+          border-color: var(--border-color) !important;
+
+          .listing-content {
+            span {
+              color: var(--text-main) !important;
+            }
+
+            .attributes span {
+              color: var(--text-muted) !important;
+            }
+
+            .price-wrap {
+              .text-xs {
+                color: var(--text-muted) !important;
+              }
+
+              .price {
+                color: var(--accent-primary) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Bottom navigation
+    .publish-navigation {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      .inner,
+      .inner-boxed {
+        background-color: var(--bg-card) !important;
+      }
+
+      button {
+        background-color: var(--bg-elevated) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-main) !important;
+
+        p {
+          color: var(--text-main) !important;
+        }
+
+        &:hover:not(:disabled) {
+          background-color: var(--accent-primary) !important;
+          border-color: var(--accent-primary) !important;
+          color: #fff !important;
+
+          p {
+            color: #fff !important;
+          }
+        }
+
+        &:disabled {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}
+
+// ===========================================
+// MISC
+// ===========================================
+html.olx-dark-mode {
+  .modal-title{
+    color: var(--text-main) !important;
+  }
+}
+

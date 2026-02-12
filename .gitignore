@@ -1,0 +1,6 @@
+.idea/
+.claude/
+PROJECT_SPEC.MD
+dom/
+node_modules/
+dist/
