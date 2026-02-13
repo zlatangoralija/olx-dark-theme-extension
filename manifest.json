@@ -22,10 +22,6 @@
   "host_permissions": [
     "https://*.olx.ba/*"
   ],
-  "background": {
-    "service_worker": "src/scripts/background.js",
-    "type": "module"
-  },
   "content_scripts": [
     {
       "matches": [
