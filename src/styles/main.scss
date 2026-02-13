@@ -210,16 +210,12 @@ html.olx-dark-mode {
   }
 
   // Active navigation links (Nuxt) - only nuxt-link-exact-active (current page)
-  // Using higher specificity to override scoped Vue styles with [data-v-*]
-  a.nuxt-link-exact-active[data-v-1f1acea4],
-  a.nuxt-link-exact-active.nuxt-link-active[data-v-1f1acea4],
-  .headerbar a.nuxt-link-exact-active[data-v-1f1acea4],
-  a[class*="nuxt-link-exact-active"][data-v-1f1acea4],
-  // Generic high specificity selectors
-  html.olx-dark-mode .headerbar a.nuxt-link-exact-active,
-  html.olx-dark-mode .nav-links a.nuxt-link-exact-active,
-  html.olx-dark-mode li a.nuxt-link-exact-active {
-    color: #FFD700 !important; // Gold - more visible on dark background
+  // Repeated class (.nuxt-link-exact-active) boosts specificity to beat Vue scoped [data-v-*] selectors
+  .headerbar .nav-links li a.nuxt-link-exact-active.nuxt-link-exact-active,
+  .headerbar a.nuxt-link-exact-active.nuxt-link-exact-active,
+  .nav-links a.nuxt-link-exact-active.nuxt-link-exact-active,
+  li a.nuxt-link-exact-active.nuxt-link-active.nuxt-link-exact-active {
+    color: var(--accent-primary) !important;
   }
 
   // Dropdown menu in header
@@ -230,11 +226,9 @@ html.olx-dark-mode {
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4) !important;
   }
 
-  // Dropdown links - high specificity to override Vue scoped styles
+  // Dropdown links
   .headerbar .absolute a,
   .headerbar .absolute li,
-  .headerbar .absolute a[data-v-1f1acea4],
-  .headerbar .absolute li[data-v-1f1acea4],
   html.olx-dark-mode .headerbar .absolute a,
   html.olx-dark-mode .headerbar .absolute li {
     color: var(--text-main) !important;
