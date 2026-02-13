@@ -1958,10 +1958,63 @@ html.olx-dark-mode {
     }
   }
 
+  // Generic filter label/trigger buttons inside filter-box
+  .filter-box .new-label-wrap,
+  .filter-box .new-wrap.new-label-wrap {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+
+    &.active {
+      color: var(--accent-primary) !important;
+
+      svg {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
   // Article filters wrapper
   .article-filters,
   .article-filters-new-inner {
     background-color: var(--bg-card) !important;
+  }
+
+  .article-filters {
+    > .new-label-wrap {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      svg {
+        color: var(--text-muted) !important;
+      }
+
+      &.active {
+        color: var(--accent-primary) !important;
+
+        svg {
+          color: var(--accent-primary) !important;
+        }
+      }
+    }
+
+    .article-filters-new {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      label {
+        color: var(--text-main) !important;
+      }
+
+      img[src*="close"] {
+        filter: brightness(0) invert(1) !important;
+      }
+    }
   }
 
   // Filter headers / labels
@@ -2064,6 +2117,11 @@ html.olx-dark-mode {
   .checkbox-filter-available {
     background-color: var(--bg-card) !important;
     color: var(--text-main) !important;
+
+    > div,
+    .w-full {
+      background-color: var(--bg-card) !important;
+    }
 
     label {
       color: var(--text-main) !important;
@@ -2218,11 +2276,106 @@ html.olx-dark-mode {
   // Cars filter
   .cars-filter {
     background-color: transparent !important;
+
+    &.active-class {
+      background-color: var(--bg-card) !important;
+
+      .new-label-wrap.active,
+      .new-wrap.new-label-wrap.active {
+        color: var(--accent-primary) !important;
+        background-color: var(--bg-card) !important;
+      }
+    }
+
+    .new-wrap.new-label-wrap {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      svg {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    .title-wrap {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+
+      label {
+        color: var(--text-main) !important;
+      }
+
+      img[src*="close"] {
+        filter: brightness(0) invert(1) !important;
+      }
+    }
   }
 
   // Cities filter
   .cities {
     background-color: transparent !important;
+
+    &.active-class {
+      background-color: var(--bg-card) !important;
+
+      > .new-label-wrap.active,
+      > .new-wrap.new-label-wrap.active {
+        color: var(--accent-primary) !important;
+        background-color: var(--bg-card) !important;
+      }
+    }
+
+    .new-wrap.new-label-wrap {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      svg {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    .ul-inner {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      ul {
+        background-color: var(--bg-card) !important;
+      }
+
+      li {
+        background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border-color: var(--border-color) !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+        }
+
+        &.selected {
+          background-color: var(--bg-elevated) !important;
+          color: var(--accent-primary) !important;
+        }
+      }
+    }
+
+    .close-btn {
+      background-color: var(--bg-card) !important;
+
+      button {
+        background-color: var(--accent-primary) !important;
+        color: var(--bg-main) !important;
+        border-color: var(--accent-primary) !important;
+
+        &:hover {
+          background-color: var(--accent-hover) !important;
+        }
+
+        div, p {
+          color: inherit !important;
+        }
+      }
+    }
   }
 
   // Close icon in filters
@@ -2284,6 +2437,577 @@ html.olx-dark-mode {
   // Artikli container
   .artikli {
     background-color: var(--bg-main) !important;
+  }
+
+  // ---- Filter triggers ----
+  .filter {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    // Active/open filter state
+    &.active-class {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--accent-primary) !important;
+
+      .filter__trigger {
+        background-color: var(--bg-elevated) !important;
+        color: var(--accent-primary) !important;
+      }
+
+      .filter__title {
+        color: var(--accent-primary) !important;
+      }
+
+      .filter__chevron-icon,
+      .filter__chevron-icon svg {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    &__trigger {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &.is-open {
+        background-color: var(--bg-elevated) !important;
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    &__title {
+      color: var(--text-main) !important;
+    }
+
+    &__chevron-icon {
+      color: var(--text-muted) !important;
+
+      svg {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // ---- Filter dropdown panels ----
+  .filter .panel,
+  .filter-box .panel,
+  .panel[role="dialog"] {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    color: var(--text-main) !important;
+
+    // Catch-all: override any white bg on nested divs/spans/uls/lis
+    div, ul, li, span, button {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+  }
+
+  .panel__body {
+    background-color: var(--bg-card) !important;
+  }
+
+  .panel__content {
+    background-color: var(--bg-card) !important;
+  }
+
+  .panel__topbar {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .panel__topbar-title {
+    color: var(--text-main) !important;
+  }
+
+  .panel__close {
+    background-color: transparent !important;
+    color: var(--text-muted) !important;
+
+    &:hover {
+      color: var(--text-main) !important;
+    }
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  .panel__footer {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // ---- Category tree list inside filter panels ----
+  .filter .list,
+  .panel .list,
+  ul.list[role="list"] {
+    background-color: var(--bg-card) !important;
+  }
+
+  .list__item {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.is-selected,
+    &.active {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    a {
+      color: inherit !important;
+    }
+  }
+
+  .active-li {
+    background-color: rgba(77, 182, 172, 0.1) !important;
+  }
+
+  .add-hover:hover {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  .inner {
+    color: var(--text-main) !important;
+  }
+
+  .parent-name {
+    color: var(--text-muted) !important;
+  }
+
+  span.active .inner {
+    color: var(--accent-primary) !important;
+  }
+
+  .count-number {
+    color: var(--text-muted) !important;
+  }
+
+  .category-caret {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  .main-ul.sub {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    .parent {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // ---- Option pill buttons (fuel type, transmission, etc.) ----
+  .option-pill {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+    }
+
+    &.is-selected {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  // ---- Brand/Model picker ----
+  .bm-trigger {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.is-open {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--accent-primary) !important;
+    }
+
+    &.is-disabled {
+      background-color: var(--bg-main) !important;
+      color: var(--text-muted) !important;
+      opacity: 0.6;
+    }
+  }
+
+  .bm-value {
+    color: var(--text-main) !important;
+  }
+
+  .bm-label {
+    color: var(--text-muted) !important;
+  }
+
+  .bm-chevron {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .bm-panel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    color: var(--text-main) !important;
+
+    // Catch-all for nested elements with white bg
+    div, ul, li, span, button, h3 {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+  }
+
+  .bm-header-row {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .bm-title {
+    color: var(--text-main) !important;
+  }
+
+  .bm-close {
+    color: var(--text-muted) !important;
+
+    &:hover {
+      color: var(--text-main) !important;
+    }
+
+    svg {
+      color: inherit !important;
+    }
+  }
+
+  .bm-search {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    &::placeholder {
+      color: var(--text-muted) !important;
+    }
+
+    div {
+      background-color: transparent !important;
+    }
+
+    input {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  .bm-list {
+    background-color: var(--bg-card) !important;
+
+    &--nested {
+      background-color: var(--bg-card) !important;
+    }
+  }
+
+  .bm-list-item {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.is-selected {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+
+      svg path {
+        fill: var(--accent-primary) !important;
+      }
+    }
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .bm-row {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  .bm-text {
+    color: var(--text-main) !important;
+  }
+
+  .bm-brand-logo {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .bm-submodels-inline {
+    background-color: var(--bg-card) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .bm-scroll {
+    background-color: var(--bg-card) !important;
+  }
+
+  .bm-footer {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    button {
+      background-color: var(--accent-primary) !important;
+      color: var(--bg-main) !important;
+      border-color: var(--accent-primary) !important;
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+      }
+
+      div, p {
+        color: inherit !important;
+      }
+    }
+  }
+
+  // ---- Toggle switches ----
+  .toggle-row {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .toggle-label {
+    color: var(--text-main) !important;
+  }
+
+  .toggle {
+    background-color: transparent !important;
+  }
+
+  .toggle-track {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .toggle-input:checked + .toggle-track,
+  .toggle-input:checked ~ .toggle-track {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+  }
+
+  .toggle-thumb {
+    background-color: var(--text-muted) !important;
+  }
+
+  .toggle-input:checked + .toggle-track .toggle-thumb,
+  .toggle-input:checked ~ .toggle-track .toggle-thumb {
+    background-color: #FFFFFF !important;
+  }
+
+  // ---- "Ostali filteri" expanded panel ----
+  .df-panel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .df-body {
+    background-color: var(--bg-card) !important;
+  }
+
+  .df-stack {
+    background-color: var(--bg-card) !important;
+  }
+
+  .df-footer {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // ---- Inline filter labels ----
+  .inline {
+    background-color: var(--bg-card) !important;
+
+    &__label {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // ---- Price / range inputs ----
+  .inputs-row {
+    background-color: var(--bg-card) !important;
+
+    input {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    select {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  .apply-btn {
+    background-color: var(--accent-primary) !important;
+    color: var(--bg-main) !important;
+    border-color: var(--accent-primary) !important;
+
+    &:hover {
+      background-color: var(--accent-hover) !important;
+    }
+  }
+
+  // ---- Form fields inside filters ----
+  .field {
+    background-color: var(--bg-card) !important;
+
+    &__label {
+      color: var(--text-muted) !important;
+    }
+
+    input, select {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  // ---- Category tree list ----
+  .list__item {
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.is-selected,
+    &.active {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    a {
+      color: inherit !important;
+    }
+  }
+
+  .count-number {
+    color: var(--text-muted) !important;
+  }
+
+  .category-caret {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // ---- Sort section inside filters ----
+  .sort-section {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .new-section-title {
+    color: var(--text-muted) !important;
+  }
+
+  // ---- Generic filter rows ----
+  .filter-box .row {
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  .row-text {
+    color: var(--text-main) !important;
+  }
+
+  .row-icon {
+    color: var(--accent-primary) !important;
+  }
+
+  // ---- Load more in filters ----
+  .load-more {
+    color: var(--accent-primary) !important;
+    background-color: transparent !important;
+
+    &:hover {
+      color: var(--accent-hover) !important;
+    }
+  }
+
+  // ---- Generic select/input inside filter-box ----
+  .filter-box {
+    select {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      option {
+        background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+      }
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="search"] {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    label {
+      color: var(--text-main) !important;
+    }
   }
 }
 
