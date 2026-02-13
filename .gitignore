@@ -4,3 +4,4 @@ PROJECT_SPEC.MD
 dom/
 node_modules/
 dist/
+.DS_Store
