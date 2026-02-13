@@ -7484,6 +7484,355 @@ html.olx-dark-mode {
 }
 
 // ===========================================
+// STATIC PAGES (O nama, Uslovi korištenja, etc.)
+// ===========================================
+html.olx-dark-mode {
+  .static-page {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+  }
+
+  .header-pad {
+    background-color: var(--bg-card) !important;
+  }
+
+  .static-shell {
+    background-color: var(--bg-main) !important;
+  }
+
+  .static-layout {
+    background-color: transparent !important;
+  }
+
+  // Sidebar navigation
+  .pane-left {
+    background-color: transparent !important;
+  }
+
+  .nav-list {
+    background-color: var(--bg-card) !important;
+    list-style: none !important;
+  }
+
+  .nav-item {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .nav-link {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    &.nuxt-link-exact-active,
+    &.nuxt-link-active {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+      border-left-color: var(--accent-primary) !important;
+    }
+
+    .truncate {
+      color: inherit !important;
+    }
+  }
+
+  .chev {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .nav-link.nuxt-link-exact-active .chev,
+  .nav-link.nuxt-link-active .chev {
+    color: var(--accent-primary) !important;
+
+    svg {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Main content pane
+  .pane-main {
+    background-color: transparent !important;
+  }
+
+  // Hero section
+  .hero {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .hero-logo {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  .hero-text {
+    color: var(--text-main) !important;
+  }
+
+  .hero-title {
+    color: var(--text-main) !important;
+  }
+
+  // Content area
+  .content {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .premium-static {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .static-section {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &.highlight {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  .static-title {
+    color: var(--text-main) !important;
+  }
+
+  .static-text {
+    color: var(--text-muted) !important;
+
+    &.strong {
+      color: var(--text-main) !important;
+    }
+
+    a {
+      color: var(--accent-hover) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  .static-list {
+    color: var(--text-muted) !important;
+
+    li {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .credit-value {
+    color: var(--text-main) !important;
+
+    span {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Terms of use page
+  .premium-terms {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .terms {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .terms__info {
+    background-color: var(--bg-card) !important;
+  }
+
+  .custom-info {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    p {
+      color: var(--text-main) !important;
+    }
+  }
+
+  .terms-card {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    // Article header
+    .terms-header {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      h1 {
+        color: var(--text-main) !important;
+      }
+    }
+
+    // Table of contents nav
+    nav {
+      background-color: var(--bg-elevated) !important;
+      border-color: var(--border-color) !important;
+
+      h2 {
+        color: var(--text-main) !important;
+      }
+
+      ul li a {
+        color: var(--accent-hover) !important;
+
+        &:hover {
+          color: var(--accent-primary) !important;
+        }
+      }
+    }
+
+    // Body paragraphs
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    // Section headings
+    section h2 {
+      color: var(--text-main) !important;
+    }
+
+    // Bullet lists
+    ul.list-disc {
+      color: var(--text-muted) !important;
+
+      li {
+        color: var(--text-muted) !important;
+      }
+    }
+
+    // Links inside terms content
+    a {
+      color: var(--accent-hover) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Online security page
+  .security {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .sec-card {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .security__title {
+    color: var(--text-main) !important;
+  }
+
+  .security__text {
+    color: var(--text-muted) !important;
+
+    a {
+      color: var(--accent-hover) !important;
+      font-weight: 500 !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    b {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Privacy page
+  .privacy {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .privacy__title {
+    color: var(--text-main) !important;
+  }
+
+  .privacy__text {
+    color: var(--text-muted) !important;
+
+    strong {
+      color: var(--text-main) !important;
+    }
+
+    a {
+      color: var(--accent-hover) !important;
+      font-weight: 500 !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  .privacy__list {
+    color: var(--text-muted) !important;
+
+    li {
+      color: var(--text-muted) !important;
+
+      a {
+        color: var(--accent-hover) !important;
+
+        &:hover {
+          color: var(--accent-primary) !important;
+        }
+      }
+    }
+  }
+
+  // Delivery page (OLX brza dostava)
+  .static-page__title {
+    color: var(--text-main) !important;
+  }
+
+  .static-page__info {
+    color: var(--text-muted) !important;
+
+    &.last {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .static-page__img {
+    border-radius: 8px !important;
+  }
+
+  .static-page__footer-link {
+    color: var(--text-muted) !important;
+
+    a {
+      color: var(--accent-hover) !important;
+      font-weight: 700 !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
 // MISC
 // ===========================================
 html.olx-dark-mode {
