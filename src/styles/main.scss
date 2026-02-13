@@ -3152,6 +3152,41 @@ html.olx-dark-mode {
   // Modal content
   .modal-content {
     background-color: var(--bg-card) !important;
+
+    // Share modal button
+    > button,
+    > .mb-md {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border: 1px solid var(--border-color) !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      &:hover {
+        background-color: #3a3a3a !important;
+      }
+    }
+  }
+
+  // Share modal apps grid
+  .sharing-apps {
+    .share-wrap {
+      background-color: var(--bg-elevated) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 8px !important;
+      padding: 8px !important;
+
+      p {
+        color: var(--text-main) !important;
+      }
+
+      &:hover {
+        background-color: #3a3a3a !important;
+        border-color: var(--accent-primary) !important;
+      }
+    }
   }
 
   // Categories sheet (modal)
