@@ -3141,6 +3141,52 @@ html.olx-dark-mode {
     background-color: var(--bg-card) !important;
   }
 
+  // Categories sheet (modal)
+  .cats-sheet {
+    background-color: var(--bg-card) !important;
+
+    &__top {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    &__title {
+      color: var(--text-muted) !important;
+    }
+
+    &__list {
+      background-color: var(--bg-card) !important;
+    }
+
+    &__item {
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        background-color: var(--bg-elevated) !important;
+      }
+
+      &.is-active,
+      &.selected {
+        background-color: var(--bg-elevated) !important;
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    &__check {
+      border-color: var(--border-color) !important;
+    }
+
+    &__text {
+      color: var(--text-main) !important;
+    }
+
+    &__chev {
+      color: var(--text-muted) !important;
+    }
+  }
+
   // Custom list in modal
   .custom-list {
     background-color: var(--bg-card) !important;
