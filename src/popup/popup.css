@@ -183,3 +183,18 @@ input:checked + .slider:before {
   opacity: 1;
   transform: translateY(-1px);
 }
+
+.disclaimer {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  text-align: center;
+}
+
+.disclaimer p {
+  font-size: 10px;
+  color: #888; /* Dimmed color */
+  line-height: 1.4;
+  margin: 0;
+  font-style: italic;
+}
