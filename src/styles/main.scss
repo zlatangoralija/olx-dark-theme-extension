@@ -3118,6 +3118,53 @@ html.olx-dark-mode {
     }
   }
 
+  // Renew listings section (profile page)
+  .refresh-info-top {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+
+    span {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .refresh-info {
+    background-color: var(--bg-card) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+
+    div {
+      color: var(--text-muted) !important;
+    }
+
+    b {
+      color: var(--text-main) !important;
+    }
+  }
+
+  .error {
+    background-color: var(--bg-card) !important;
+
+    p {
+      color: var(--text-muted) !important;
+    }
+
+    img.not-found {
+      opacity: 0.8 !important;
+    }
+  }
+
+  .label-wrap {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    svg {
+      color: var(--text-main) !important;
+    }
+  }
+
   // Modal overlay
   .v--modal-overlay {
     background-color: rgba(0, 0, 0, 0.7) !important;
