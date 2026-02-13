@@ -55,7 +55,7 @@ A browser extension that brings a carefully crafted dark theme to [olx.ba](https
 ### Mozilla Firefox
 
 <!-- TODO: Replace with actual Firefox Add-on link -->
-1. Visit the [Firefox Add-ons listing](#)
+1. Visit the [Firefox Add-ons listing](https://addons.mozilla.org/en-US/firefox/addon/olx-ba-dark-tema/)
 2. Click **"Add to Firefox"**
 3. Confirm by clicking **"Add"**
 
