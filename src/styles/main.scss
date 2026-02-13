@@ -5518,6 +5518,331 @@ html.olx-dark-mode {
 }
 
 // ===========================================
+// REAL ESTATE FILTERS
+// ===========================================
+html.olx-dark-mode {
+  .filters-container-inner {
+    background-color: transparent !important;
+  }
+
+  .filters-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Tab navigation
+  .filter-tab {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .scroll-btn {
+    background-color: var(--bg-card) !important;
+    color: var(--text-muted) !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  .tabs-list {
+    background-color: var(--bg-card) !important;
+  }
+
+  .tab-pill {
+    background-color: var(--bg-card) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+    }
+
+    &.active {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+      border-color: var(--accent-primary) !important;
+    }
+
+    .tab-icon {
+      filter: brightness(0) invert(0.7) !important;
+    }
+
+    &.active .tab-icon {
+      filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(140deg) !important;
+    }
+  }
+
+  .tab-text {
+    color: inherit !important;
+  }
+
+  // Filter body
+  .filters-body {
+    background-color: var(--bg-card) !important;
+  }
+
+  .filters-row,
+  .filters-grid {
+    background-color: transparent !important;
+  }
+
+  .filter-item {
+    background-color: transparent !important;
+  }
+
+  // Multi-select dropdown (msd component)
+  .msd {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+  }
+
+  .msd__head {
+    background-color: transparent !important;
+  }
+
+  .msd__label {
+    color: var(--text-main) !important;
+  }
+
+  .range-card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .msd__input {
+    background-color: #2C2C2C !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  .msd__input-text {
+    color: var(--text-main) !important;
+
+    &.placeholder {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .msd__input-icon {
+    color: var(--text-muted) !important;
+  }
+
+  .msd__chevron {
+    color: var(--text-muted) !important;
+  }
+
+  .msd__panel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .msd__topbar {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .msd__panel-title {
+    color: var(--text-main) !important;
+  }
+
+  .msd__close {
+    background-color: transparent !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  .options-grid {
+    background-color: transparent !important;
+  }
+
+  // Cities filter (cf component)
+  .cities-filter {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+  }
+
+  .cf__head {
+    background-color: transparent !important;
+  }
+
+  .cf__label {
+    color: var(--text-main) !important;
+  }
+
+  .cf__card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .cf__select-wrap {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .cf__select {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    option {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+
+      &:disabled {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  .cf__chevron {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Cities filter panel
+  .cf__panel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .cf__panel-head {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .cf__panel-title {
+    color: var(--text-main) !important;
+  }
+
+  .cf__panel-close {
+    background-color: transparent !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  .cf__list {
+    background-color: var(--bg-card) !important;
+  }
+
+  .cf__item {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    &.selected {
+      background-color: var(--bg-elevated) !important;
+      color: var(--accent-primary) !important;
+
+      .cf__check svg {
+        color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  .cf__check {
+    color: transparent !important;
+
+    svg {
+      color: transparent !important;
+    }
+  }
+
+  .cf__text {
+    color: inherit !important;
+  }
+
+  .cf__footer {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    button {
+      background-color: var(--accent-primary) !important;
+      color: #fff !important;
+
+      p {
+        color: #fff !important;
+      }
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+      }
+    }
+  }
+
+  // Numeric range filter
+  .numeric-range-filter {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+
+    .inputs {
+      background-color: transparent !important;
+    }
+
+    .field {
+      background-color: transparent !important;
+    }
+
+    .input-wrap {
+      background-color: transparent !important;
+
+      input {
+        background-color: #2C2C2C !important;
+        color: #FFFFFF !important;
+        border-color: var(--border-color) !important;
+
+        &::placeholder {
+          color: var(--text-muted) !important;
+        }
+
+        &:focus {
+          border-color: var(--accent-primary) !important;
+        }
+      }
+    }
+  }
+
+  // Filter CTA buttons
+  .filters-cta {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    button {
+      background-color: var(--accent-primary) !important;
+      color: #fff !important;
+      border: none !important;
+
+      p {
+        color: #fff !important;
+      }
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+      }
+    }
+  }
+}
+
+// ===========================================
 // PUBLISH LISTING MODAL
 // ===========================================
 html.olx-dark-mode {
