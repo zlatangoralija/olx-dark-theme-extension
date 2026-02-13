@@ -1083,13 +1083,16 @@ html.olx-dark-mode {
     background-color: transparent !important;
   }
 
-  // Highlighted labels (badges like "TOP", "IZDVOJENO", etc.)
+  // Highlighted labels (badges like "TOP", "IZDVOJENO", "Dostupno odmah", etc.)
   .highlighted-label {
-    // Keep original colors for visibility, just adjust if needed
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+
     &.level-2 {
-      // Secondary highlight - slightly transparent
-      background-color: rgba(77, 182, 172, 0.2) !important;
+      background-color: #1a3a37 !important;
       color: var(--accent-primary) !important;
+      border-color: var(--accent-primary) !important;
     }
   }
 
