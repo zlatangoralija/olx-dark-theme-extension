@@ -1,6 +1,8 @@
 import '../styles/main.scss';
+import darkLogo from '../assets/icons/logo.svg';
 
 const DARK_MODE_CLASS = 'olx-dark-mode';
+const ORIGINAL_LOGO_SRC = 'new-logo-olx';
 
 // Apply or remove dark mode class
 function setDarkMode(enabled) {
@@ -9,7 +11,35 @@ function setDarkMode(enabled) {
   } else {
     document.documentElement.classList.remove(DARK_MODE_CLASS);
   }
+  swapLogo(enabled);
 }
+
+// Swap OLX logo for dark mode variant
+function swapLogo(enabled) {
+  // Match any img.olx-logo that either has the original src OR was already swapped by us
+  const logos = document.querySelectorAll('img.olx-logo');
+  logos.forEach((logo) => {
+    if (enabled) {
+      if (!logo.dataset.originalSrc && logo.src.includes(ORIGINAL_LOGO_SRC)) {
+        logo.dataset.originalSrc = logo.src;
+      }
+      if (logo.dataset.originalSrc) {
+        logo.src = darkLogo;
+      }
+    } else if (logo.dataset.originalSrc) {
+      logo.src = logo.dataset.originalSrc;
+      delete logo.dataset.originalSrc;
+    }
+  });
+}
+
+// Observe DOM for late-loaded logos and swap them if dark mode is on
+const logoObserver = new MutationObserver(() => {
+  if (document.documentElement.classList.contains(DARK_MODE_CLASS)) {
+    swapLogo(true);
+  }
+});
+logoObserver.observe(document.documentElement, { childList: true, subtree: true });
 
 // Check system preference for dark mode
 function getSystemPreference() {
@@ -54,5 +84,3 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 
 // Run immediately
 initDarkMode();
-
-console.log('OLX Dark Mode Active');

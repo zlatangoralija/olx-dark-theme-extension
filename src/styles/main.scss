@@ -66,6 +66,16 @@ html.olx-dark-mode {
   .logo {
     background-color: transparent !important;
   }
+
+  // OLX credit button in header
+  img[src*="olxcredit"] {
+    filter: brightness(1.8) saturate(1.5) !important;
+  }
+
+  // Credit badge - keep dark text on yellow background
+  img[src*="olxcredit"] + span {
+    color: #1e293b !important; // slate-800
+  }
 }
 
 // ===========================================
