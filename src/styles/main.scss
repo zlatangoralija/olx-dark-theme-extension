@@ -5541,6 +5541,209 @@ html.olx-dark-mode {
       // Modal content
       .modal-content {
         background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+
+        .heading-cat {
+          color: var(--text-main) !important;
+        }
+
+        .p-cat {
+          color: var(--text-muted) !important;
+        }
+
+        .search-input {
+          background-color: #2C2C2C !important;
+          color: #FFFFFF !important;
+          border-color: var(--border-color) !important;
+
+          &::placeholder {
+            color: var(--text-muted) !important;
+          }
+
+          &:focus {
+            border-color: var(--accent-primary) !important;
+          }
+        }
+      }
+
+      // Manual category picker
+      .manual-wrap {
+        background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+      }
+
+      .manual-header {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-main) !important;
+      }
+
+      .manual-back {
+        background-color: transparent !important;
+        color: var(--text-main) !important;
+
+        svg {
+          color: var(--text-main) !important;
+        }
+
+        &:hover {
+          color: var(--accent-primary) !important;
+
+          svg {
+            color: var(--accent-primary) !important;
+          }
+        }
+      }
+
+      .manual-title {
+        color: var(--text-main) !important;
+      }
+
+      .manual-x {
+        background-color: transparent !important;
+        color: var(--text-muted) !important;
+
+        svg {
+          color: var(--text-muted) !important;
+        }
+
+        &:hover {
+          color: var(--text-main) !important;
+
+          svg {
+            color: var(--text-main) !important;
+          }
+        }
+      }
+
+      .manual-content {
+        background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+      }
+
+      .manual-block {
+        background-color: var(--bg-card) !important;
+      }
+
+      .manual-block__title {
+        color: var(--text-muted) !important;
+      }
+
+      .custom-list--rows {
+        background-color: var(--bg-card) !important;
+      }
+
+      .row-item {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-main) !important;
+
+        &:hover {
+          background-color: var(--bg-elevated) !important;
+        }
+      }
+
+      .row-btn {
+        background-color: transparent !important;
+        color: var(--text-main) !important;
+      }
+
+      .row-left {
+        background-color: transparent !important;
+      }
+
+      .row-title {
+        color: var(--text-main) !important;
+      }
+
+      .row-next {
+        filter: brightness(0) invert(1) !important;
+      }
+
+      .choose-cat__more {
+        background-color: transparent !important;
+        color: var(--accent-primary) !important;
+        border-color: var(--border-color) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+
+      .choose-cat__more-count {
+        color: var(--text-muted) !important;
+      }
+
+      // Category suggestion list
+      .choose-cat {
+        background-color: var(--bg-card) !important;
+        color: var(--text-main) !important;
+
+        h2 {
+          color: var(--text-main) !important;
+        }
+
+        .choose-cat__search {
+          background-color: transparent !important;
+
+          .search-input {
+            background-color: #2C2C2C !important;
+            color: #FFFFFF !important;
+            border-color: var(--border-color) !important;
+
+            &::placeholder {
+              color: var(--text-muted) !important;
+            }
+
+            &:focus {
+              border-color: var(--accent-primary) !important;
+            }
+          }
+        }
+
+        li {
+          background-color: var(--bg-card) !important;
+          border-color: var(--border-color) !important;
+
+          &:hover {
+            background-color: var(--bg-elevated) !important;
+          }
+
+          button {
+            background-color: transparent !important;
+            color: var(--text-main) !important;
+
+            span {
+              color: var(--text-muted) !important;
+
+              img {
+                filter: brightness(0) invert(1) !important;
+              }
+            }
+
+            img {
+              filter: brightness(0) invert(1) !important;
+            }
+
+            b {
+              color: var(--text-main) !important;
+            }
+          }
+        }
+
+        // "Izaberi ručno kategoriju" button (has inline styles)
+        > button {
+          background-color: var(--accent-primary) !important;
+          color: #fff !important;
+
+          p {
+            color: #fff !important;
+          }
+
+          &:hover {
+            background-color: var(--accent-hover) !important;
+          }
+        }
       }
 
       // Category cards
@@ -6307,6 +6510,640 @@ html.olx-dark-mode {
           opacity: 0.4;
         }
       }
+    }
+  }
+}
+
+// ===========================================
+// PUBLISH / LISTING CREATION PAGE
+// ===========================================
+html.olx-dark-mode {
+  // Main wrapper
+  .publish-main-wrapper {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Top navbar
+  .top-navbar-publish-wrapper {
+    background-color: var(--bg-card) !important;
+    border-bottom-color: var(--border-color) !important;
+  }
+
+  .top-navbar-publish {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .topbar-inner,
+  .topbar-row {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+  }
+
+  // Progress card
+  .publish-topbar-card {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .ptc-title {
+    color: var(--text-main) !important;
+  }
+
+  .ptc-progress {
+    background-color: var(--bg-elevated) !important;
+  }
+
+  .ptc-progress__fill {
+    background-color: var(--accent-primary) !important;
+  }
+
+  // Publish content sections (steps)
+  .publish-content {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &.active {
+      background-color: var(--bg-card) !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Step headers
+  .pc-head {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+
+    &.is-locked {
+      opacity: 0.5;
+    }
+  }
+
+  .pc-left {
+    background-color: transparent !important;
+  }
+
+  // Step badges
+  .pc-badge {
+    //background-color: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+
+    //&.is-active {
+    //  background-color: var(--accent-primary) !important;
+    //  color: #fff !important;
+    //}
+  }
+
+  .pc-badge-num {
+    color: inherit !important;
+  }
+
+  // Step text
+  .pc-text {
+    color: var(--text-main) !important;
+  }
+
+  .pc-kicker {
+    color: var(--text-muted) !important;
+  }
+
+  .pc-title {
+    color: var(--text-main) !important;
+  }
+
+  // Step body
+  .pc-body {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  .pc-pad {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Category cards
+  .catCard {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      background-color: var(--border-color) !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  .catCard__inner {
+    background-color: transparent !important;
+    color: inherit !important;
+  }
+
+  .catCard__iconShell {
+    background-color: transparent !important;
+  }
+
+  .catCard__iconBadge {
+    background-color: var(--bg-card) !important;
+  }
+
+  .catCard__iconInner {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 8px !important;
+    padding: 4px !important;
+  }
+
+  .catCard__icon {
+    // Keep original colors – these are raster images, not SVGs
+  }
+
+  .catCard__text {
+    color: var(--text-main) !important;
+  }
+
+  .catCard__title {
+    color: var(--text-main) !important;
+  }
+
+  .catCard__sub {
+    color: var(--text-muted) !important;
+  }
+
+  .catCard__chev {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Form inputs inside publish page
+  .overall {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+
+    input,
+    select,
+    textarea {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+
+      &:focus {
+        border-color: var(--accent-primary) !important;
+      }
+
+      &:disabled,
+      &[disabled] {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-muted) !important;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .custom-label {
+    color: var(--text-main) !important;
+  }
+
+  .unit {
+    color: var(--text-muted) !important;
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Toggle switch
+  .switch {
+    background-color: transparent !important;
+  }
+
+  .slider {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+
+    &::before {
+      background-color: var(--text-muted) !important;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: var(--accent-primary) !important;
+    border-color: var(--accent-primary) !important;
+
+    &::before {
+      background-color: #fff !important;
+    }
+  }
+
+  // Section titles
+  .section-title {
+    color: var(--text-main) !important;
+  }
+
+  // Description block
+  .desc-block {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .desc-head {
+    color: var(--text-main) !important;
+  }
+
+  .desc-counter {
+    color: var(--text-muted) !important;
+  }
+
+  .desc-tooltip {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Disabled location
+  .disabled-location {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+    opacity: 0.6;
+
+    input {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Map button
+  .map-btn {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      border-color: var(--accent-primary) !important;
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  .map-btn__content {
+    color: inherit !important;
+  }
+
+  .map-btn__icon {
+    color: var(--accent-primary) !important;
+
+    svg {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Map container & inner elements
+  .map-inner {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    label {
+      color: var(--text-main) !important;
+    }
+
+    input {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+
+      &:focus {
+        border-color: var(--accent-primary) !important;
+      }
+    }
+
+    .ul-inner {
+      background-color: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+
+      ul {
+        background-color: var(--bg-card) !important;
+
+        li {
+          background-color: var(--bg-card) !important;
+          color: var(--text-main) !important;
+
+          &:hover {
+            background-color: var(--bg-elevated) !important;
+          }
+        }
+      }
+    }
+
+    span {
+      color: var(--text-main) !important;
+    }
+  }
+
+  // Map info box
+  .map-info-box {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .map-info-icon {
+    color: var(--accent-primary) !important;
+
+    svg {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  .map-info-text {
+    color: var(--text-main) !important;
+  }
+
+  // Map actions
+  .map-actions {
+    background-color: transparent !important;
+  }
+
+  // Google Map container
+  .GMap,
+  .GMap__Wrapper {
+    border-color: var(--border-color) !important;
+  }
+
+  // Change location button
+  .change-location {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    &:hover {
+      border-color: var(--accent-primary) !important;
+      color: var(--accent-primary) !important;
+    }
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  // Region / Location selector (gloc component)
+  .gloc {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+  }
+
+  .gloc__head {
+    background-color: transparent !important;
+  }
+
+  .gloc__label {
+    color: var(--text-main) !important;
+  }
+
+  .gloc__card {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .gloc__select-wrap {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+
+    &.error {
+      border-color: #e74c3c !important;
+    }
+  }
+
+  .gloc__select {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    option {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+
+      &:disabled {
+        color: var(--text-muted) !important;
+      }
+    }
+  }
+
+  .gloc__chevron {
+    color: var(--text-muted) !important;
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  .gloc__sub {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .gloc__subhead {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+  }
+
+  .gloc__sublabel {
+    color: var(--text-main) !important;
+  }
+
+  .gloc__list {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .gloc__item {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+
+    svg {
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  .gloc__text {
+    color: var(--text-main) !important;
+  }
+
+  // Fake select input (sf component)
+  .sf__fake-input {
+    background-color: #2C2C2C !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-color) !important;
+
+    &.is-open {
+      border-color: var(--accent-primary) !important;
+    }
+
+    &:hover {
+      border-color: var(--accent-primary) !important;
+    }
+  }
+
+  .sf__fake-value {
+    color: #FFFFFF !important;
+  }
+
+  .sf__chevron {
+    color: var(--text-muted) !important;
+  }
+
+  // Bottom navigation bar
+  .publish-navigation {
+    background-color: var(--bg-card) !important;
+    border-top-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .mobile-publishing-wrapper {
+    background-color: var(--bg-card) !important;
+    border-top-color: var(--border-color) !important;
+  }
+
+  // Sidebar / aside
+  .aside {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Listing preview card
+  .listing-wrapper {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .listing-content {
+    background-color: var(--bg-card) !important;
+    color: var(--text-main) !important;
+  }
+
+  // Price display
+  .price-wrap {
+    color: var(--text-main) !important;
+  }
+
+  .price {
+    color: var(--text-main) !important;
+  }
+
+  // Attribute tags
+  .attributes {
+    color: var(--text-muted) !important;
+
+    span {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-muted) !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  // Publish page generic form elements
+  .publish-main-wrapper,
+  .publish-content,
+  .pc-body,
+  .pc-pad {
+    label {
+      color: var(--text-main) !important;
+    }
+
+    select {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &:focus {
+        border-color: var(--accent-primary) !important;
+      }
+    }
+
+    textarea {
+      background-color: #2C2C2C !important;
+      color: #FFFFFF !important;
+      border-color: var(--border-color) !important;
+
+      &::placeholder {
+        color: var(--text-muted) !important;
+      }
+
+      &:focus {
+        border-color: var(--accent-primary) !important;
+      }
+    }
+  }
+
+  // Publish navigation buttons
+  .publish-navigation {
+    button {
+      color: var(--text-main) !important;
+
+      &:hover {
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    // Primary action button (e.g., "Dalje" / Next)
+    button[class*="primary"],
+    button[class*="btn-primary"],
+    .btn-primary {
+      background-color: var(--accent-primary) !important;
+      color: #fff !important;
+      border-color: var(--accent-primary) !important;
+
+      &:hover {
+        background-color: var(--accent-hover) !important;
+        border-color: var(--accent-hover) !important;
+      }
+    }
+  }
+
+  // Catch-all for white background divs inside publish page
+  .publish-main-wrapper {
+    div[class*="bg-white"],
+    [style*="background: white"],
+    [style*="background-color: white"],
+    [style*="background: rgb(255"],
+    [style*="background-color: rgb(255"] {
+      background-color: var(--bg-card) !important;
+    }
+
+    // Ensure all text inside is readable
+    p, span, h1, h2, h3, h4, h5, h6, label, a {
+      color: var(--text-main) !important;
+    }
+
+    a:hover {
+      color: var(--accent-primary) !important;
+    }
+
+    // Subtle text
+    small,
+    .text-muted,
+    [class*="text-gray"],
+    [class*="text-secondary"] {
+      color: var(--text-muted) !important;
     }
   }
 }
