@@ -1,9 +1,18 @@
 {
   "manifest_version": 3,
   "name": "OLX.ba Dark tema",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Uživajte u ugodnijem pretraživanju oglasa uz modernu Dark temu za olx.ba. Odmarajte oči dok trgujete!",
   "author": "Zlatan Goralija",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "olx-dark-mode@zlatangoralija.com",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "action": {
     "default_popup": "src/popup/popup.html",
     "default_title": "OLX.ba Dark tema"
