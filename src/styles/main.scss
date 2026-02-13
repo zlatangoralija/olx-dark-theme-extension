@@ -115,6 +115,71 @@ html.olx-dark-mode {
   .lin-empty-title {
     color: var(--text-muted) !important;
   }
+
+  // Search dropdown sections
+  .lin-section {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .lin-section-title {
+    color: var(--text-muted) !important;
+  }
+
+  .lin-link-button {
+    color: var(--accent-primary) !important;
+  }
+
+  // Search dropdown list & rows
+  .lin-list {
+    background-color: var(--bg-card) !important;
+  }
+
+  .lin-row {
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+
+    &:hover {
+      background-color: var(--bg-elevated) !important;
+    }
+  }
+
+  .lin-row-link {
+    color: var(--text-main) !important;
+  }
+
+  .lin-row-icon {
+    color: var(--text-muted) !important;
+  }
+
+  .lin-row-text {
+    color: var(--text-main) !important;
+  }
+
+  .lin-row-primary {
+    color: var(--text-main) !important;
+  }
+
+  .lin-row-secondary {
+    color: var(--text-muted) !important;
+  }
+
+  .lin-row-badge {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // User avatars in search suggestions
+  .lin-user-avatar {
+    border-color: var(--border-color) !important;
+    background-color: var(--bg-elevated) !important;
+  }
+
+  // Subsection wrapper
+  .lin-subsection {
+    border-color: var(--border-color) !important;
+  }
 }
 
 // ===========================================
