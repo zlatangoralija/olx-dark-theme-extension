@@ -35,9 +35,9 @@
     {
       "matches": [
         "https://olx.ba/*",
-        "https://www.olx.ba/*",
+        "https://*.olx.ba/*",
         "https://pik.ba/*",
-        "https://www.pik.ba/*"
+        "https://*.pik.ba/*"
       ],
       "js": ["src/scripts/content.js"],
       "run_at": "document_start"
