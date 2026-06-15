@@ -800,9 +800,25 @@ html.olx-dark-mode {
     background-color: var(--bg-card) !important;
   }
 
-  // Loading wrapper
-  .loading-wrapper {
+  // Loading wrapper / spinner inside buttons — kill any dark backplate the site adds
+  .loading-wrapper,
+  .loader,
+  .lds-ring,
+  .lds-ring > div,
+  button .loader,
+  button .loader > *,
+  button .loading-wrapper,
+  button .loading-wrapper > *,
+  button .lds-ring,
+  button .lds-ring > div {
     background-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  // Spinner ring color — match the button text color so it contrasts
+  button .lds-ring > div {
+    border-color: currentColor transparent transparent transparent !important;
   }
 
   // Categories grid container
