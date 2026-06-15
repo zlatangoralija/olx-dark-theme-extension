@@ -3421,6 +3421,19 @@ html.olx-dark-mode {
         background-color: #3a3a3a !important;
       }
     }
+
+    // Shop-info modal: definition list (dt = label, dd = value)
+    dl dt,
+    .text-gray-700 {
+      color: var(--text-muted) !important;
+    }
+
+    dl dd,
+    dl dd p,
+    .text-gray-900,
+    .text-gray-900 p {
+      color: var(--text-main) !important;
+    }
   }
 
   // Share modal apps grid
