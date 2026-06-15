@@ -4755,9 +4755,9 @@ html.olx-dark-mode {
     border-radius: 12px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4) !important;
 
-    // OLX logo - invert so it's visible on dark
+    // Site logo - render in original colors (new pik.svg already has dark-friendly color)
     > a img[alt="olx-logo"] {
-      filter: brightness(0) invert(1) !important;
+      filter: none !important;
     }
 
     // Section title (Prijava / Registracija)
@@ -4767,6 +4767,10 @@ html.olx-dark-mode {
 
     // Input groups
     .overall {
+      label {
+        color: var(--text-main) !important;
+      }
+
       .new-wrap,
       label {
         h2 {
@@ -4792,6 +4796,25 @@ html.olx-dark-mode {
           outline: none !important;
           box-shadow: 0 0 0 2px rgba(77, 182, 172, 0.25) !important;
         }
+      }
+    }
+
+    // Unstyled select (e.g. "Izaberite paket" on register page)
+    select {
+      background-color: var(--bg-elevated) !important;
+      color: var(--text-main) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 6px !important;
+
+      option {
+        background-color: var(--bg-elevated) !important;
+        color: var(--text-main) !important;
+      }
+
+      &:focus {
+        border-color: var(--accent-primary) !important;
+        outline: none !important;
+        box-shadow: 0 0 0 2px rgba(77, 182, 172, 0.25) !important;
       }
     }
 
@@ -4867,6 +4890,78 @@ html.olx-dark-mode {
 
         span {
           color: inherit !important;
+        }
+      }
+    }
+
+    // Registration page tabs (Klasični profil / OLX shop)
+    .register-types {
+      border-color: var(--border-color) !important;
+
+      li {
+        color: var(--text-muted) !important;
+        background-color: transparent !important;
+        border-color: var(--border-color) !important;
+
+        &.active {
+          color: var(--text-main) !important;
+          background-color: var(--bg-elevated) !important;
+          border-color: var(--accent-primary) !important;
+        }
+      }
+    }
+
+    // Password strength rules
+    .password-rules {
+      .password-rule {
+        color: var(--text-muted) !important;
+
+        &.is-valid {
+          color: var(--text-main) !important;
+
+          span {
+            background-color: var(--accent-primary) !important;
+            border-color: var(--accent-primary) !important;
+          }
+        }
+
+        &.is-pending span {
+          background-color: var(--bg-elevated) !important;
+          border-color: var(--border-color) !important;
+        }
+      }
+    }
+
+    // Terms of service checkbox row
+    .policy-button {
+      color: var(--text-main) !important;
+
+      .terms-link {
+        color: var(--accent-primary) !important;
+
+        &:hover {
+          color: var(--accent-hover) !important;
+        }
+      }
+    }
+
+    // Bottom "Imate korisnički račun? Prijavite se" — sometimes uses inline color rgb(0,47,52)
+    [slot="bottom"] {
+      span,
+      a,
+      a span {
+        color: var(--text-main) !important;
+      }
+
+      a {
+        color: var(--accent-primary) !important;
+
+        span {
+          color: inherit !important;
+        }
+
+        &:hover {
+          color: var(--accent-hover) !important;
         }
       }
     }
@@ -7617,6 +7712,51 @@ html.olx-dark-mode {
 
   .sf__chevron {
     color: var(--text-muted) !important;
+  }
+
+  // Fake select dropdown panel (Spol picker, Kategorija picker, etc.)
+  .sf__panel {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+  }
+
+  .sf__grid {
+    background-color: var(--bg-card) !important;
+  }
+
+  .sf__pill {
+    background-color: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+
+    .sf__text {
+      color: var(--text-main) !important;
+    }
+
+    svg {
+      color: var(--text-muted) !important;
+    }
+
+    &:hover {
+      background-color: var(--bg-main) !important;
+      border-color: var(--accent-primary) !important;
+    }
+
+    &.selected,
+    &.is-selected {
+      background-color: rgba(77, 182, 172, 0.15) !important;
+      border-color: var(--accent-primary) !important;
+
+      .sf__text {
+        color: var(--accent-primary) !important;
+      }
+
+      svg {
+        color: var(--accent-primary) !important;
+        fill: var(--accent-primary) !important;
+      }
+    }
   }
 
   // Bottom navigation bar
