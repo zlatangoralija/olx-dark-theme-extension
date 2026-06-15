@@ -1,11 +1,11 @@
-# OLX.ba Dark Mode
+# pik.ba Dark Mode
 
-A browser extension that brings a carefully crafted dark theme to [olx.ba](https://olx.ba) — Bosnia and Herzegovina's largest online marketplace. Browse listings, manage your profile, publish ads, and explore every page with a modern dark interface that's easy on the eyes.
+A browser extension that brings a carefully crafted dark theme to [olx.ba](https://olx.ba) / [pik.ba](https://pik.ba) — Bosnia and Herzegovina's largest online marketplace. Browse listings, manage your profile, publish ads, and explore every page with a modern dark interface that's easy on the eyes.
 
 ![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)
 ![Firefox Add-on](https://img.shields.io/badge/Firefox-Add--on-FF7139?logo=firefox&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+![Version](https://img.shields.io/badge/Version-2.0.0-blue)
 
 ---
 
@@ -28,7 +28,7 @@ A browser extension that brings a carefully crafted dark theme to [olx.ba](https
 
 ## Features
 
-- **Full dark theme** covering all major OLX.ba pages:
+- **Full dark theme** covering all major pik.ba pages:
   - Homepage and listing feeds
   - Search results and filters
   - Individual listing pages
@@ -103,8 +103,8 @@ If you'd like to load the extension manually from source:
 
 ## How to Use
 
-1. After installation, you'll see the OLX Dark Mode icon in your browser toolbar
-2. Navigate to any page on [olx.ba](https://olx.ba)
+1. After installation, you'll see the pik.ba Dark Mode icon in your browser toolbar
+2. Navigate to any page on [olx.ba](https://olx.ba) or [pik.ba](https://pik.ba)
 3. Click the extension icon to open the popup
 4. Toggle the switch to enable or disable dark mode
 5. Your preference is saved automatically — it will persist across tabs and sessions
@@ -122,14 +122,14 @@ If you'd like to load the extension manually from source:
 - **No third-party scripts** — all code is first-party. There are no external dependencies loaded at runtime
 - **Minimal permissions** — the extension only requests the permissions it absolutely needs:
   - `storage` — to save your dark mode on/off preference locally
-  - `activeTab` — to apply the theme to the current OLX.ba tab
+  - `activeTab` — to apply the theme to the current pik.ba tab
   - `scripting` — to inject the dark mode stylesheet
-- **Host permissions** are restricted exclusively to `https://*.olx.ba/*` — the extension cannot access or interact with any other website
+- **Host permissions** are restricted exclusively to `https://*.olx.ba/*` and `https://*.pik.ba/*` — the extension cannot access or interact with any other website
 - **Open source** — the entire source code is publicly available for inspection in this repository
 
 ## Disclaimer
 
-> **This extension is NOT an official product of OLX.ba or its parent company.** It is an independent, community-driven project created to enhance the browsing experience for OLX.ba users. It is not affiliated with, endorsed by, or in any way officially connected to OLX.ba, OLX Group, or any of their subsidiaries. The OLX name and logo are trademarks of their respective owners.
+> **This extension is NOT an official product of pik.ba (formerly olx.ba) or its parent company.** It is an independent, community-driven project created to enhance the browsing experience for pik.ba users. It is not affiliated with, endorsed by, or in any way officially connected to pik.ba, OLX Group, or any of their subsidiaries. The pik.ba and OLX names and logos are trademarks of their respective owners.
 
 ---
 
@@ -171,7 +171,7 @@ olx-dark-theme-extension/
 │   │       ├── icon32.png     # Extension icon (32x32)
 │   │       ├── icon48.png     # Extension icon (48x48)
 │   │       ├── icon128.png    # Extension icon (128x128)
-│   │       └── logo.svg       # Dark mode OLX logo (teal variant)
+│   │       └── logo.svg       # Dark mode pik.ba logo (teal variant)
 │   ├── popup/
 │   │   ├── popup.html         # Extension popup UI
 │   │   ├── popup.css          # Popup styles
@@ -216,7 +216,7 @@ olx-dark-theme-extension/
    - Click **"Load unpacked"**
    - Select the project root directory (not `dist` — CRXJS handles this during development)
 
-5. **Open any page on olx.ba** and you should see the dark theme in action.
+5. **Open any page on olx.ba or pik.ba** and you should see the dark theme in action.
 
 ### Development Workflow
 
@@ -247,12 +247,12 @@ The extension uses a simple but effective architecture with three main component
 
 #### 1. Content Script (`src/scripts/content.js`)
 
-The content script is the core of the extension. It runs on every OLX.ba page at `document_start` (before the DOM is rendered) and is responsible for:
+The content script is the core of the extension. It runs on every pik.ba page at `document_start` (before the DOM is rendered) and is responsible for:
 
 - **Theme application:** Adds or removes the `olx-dark-mode` class on the `<html>` element based on the user's stored preference
 - **Preference management:** Reads from and writes to `chrome.storage.local` to persist the user's dark/light mode choice
 - **System preference detection:** On first install (no stored preference), checks `prefers-color-scheme: dark` to automatically match the user's OS setting
-- **Logo replacement:** Dynamically swaps the OLX logo with a dark-mode-optimized teal SVG variant. Uses a `MutationObserver` to catch late-loaded logos on SPA-style page transitions
+- **Logo replacement:** Dynamically swaps the site logo with a dark-mode-optimized teal SVG variant. Uses a `MutationObserver` to catch late-loaded logos on SPA-style page transitions
 - **Message handling:** Listens for `TOGGLE_THEME` messages from the popup to apply changes in real-time
 
 #### 2. Stylesheet (`src/styles/main.scss`)
@@ -260,7 +260,7 @@ The content script is the core of the extension. It runs on every OLX.ba page at
 All dark mode visual overrides live in a single SCSS file (~7900+ lines), organized by page/component section. Key design decisions:
 
 - **Scoped under `html.olx-dark-mode`** — all rules are nested under this selector, ensuring zero impact when dark mode is off
-- **`!important` on all declarations** — necessary to override OLX.ba's inline styles and high-specificity selectors
+- **`!important` on all declarations** — necessary to override pik.ba's inline styles and high-specificity selectors
 - **CSS custom properties** for consistent theming:
   - `--bg-main: #121212` — primary background
   - `--bg-card: #1E1E1E` — card/panel background
@@ -279,7 +279,7 @@ All dark mode visual overrides live in a single SCSS file (~7900+ lines), organi
 
 A minimal popup UI built with plain HTML, CSS, and JavaScript:
 
-- Displays the OLX Dark Mode branding and a toggle switch
+- Displays the pik.ba Dark Mode branding and a toggle switch
 - Reads the current theme state from `chrome.storage.local`
 - On toggle, saves the new state and sends a message to the active tab's content script
 - Includes feedback links (email, Google Form, GitHub Issues)
@@ -321,7 +321,7 @@ Contributions are welcome! Whether it's a bug fix, a new page that needs dark mo
    ```
 3. **Make your changes** — follow the existing code style and patterns
 4. **Test thoroughly:**
-   - Load the extension locally and verify your changes on olx.ba
+   - Load the extension locally and verify your changes on olx.ba / pik.ba
    - Test with dark mode both enabled and disabled
    - Check that toggling works correctly
    - Verify no visual regressions on other pages
@@ -339,7 +339,7 @@ Contributions are welcome! Whether it's a bug fix, a new page that needs dark mo
 
 - **SCSS organization:** Add new styles to the appropriate section in `main.scss`. Each section is clearly marked with comment headers (e.g., `// HEADER / NAVBAR`, `// LISTING CARDS`, `// STATIC PAGES`)
 - **Always scope under `html.olx-dark-mode`** — never add unscoped global styles
-- **Use `!important`** on all declarations — this is required to override OLX.ba's styles
+- **Use `!important`** on all declarations — this is required to override pik.ba's styles
 - **Use CSS custom properties** (`var(--bg-card)`, `var(--text-main)`, etc.) for colors — don't hardcode hex values unless necessary
 - **Test both states** — make sure pages look correct with dark mode on AND off
 - **Keep it minimal** — only style what needs to be styled. Don't add unnecessary overrides
@@ -385,4 +385,4 @@ SOFTWARE.
 
 ---
 
-**Made with care for the OLX.ba community by [Zlatan Goralija](https://github.com/zlatangoralija)**
+**Made with care for the pik.ba community by [Zlatan Goralija](https://github.com/zlatangoralija)**

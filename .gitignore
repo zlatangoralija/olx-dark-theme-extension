@@ -6,3 +6,7 @@ node_modules/
 dist/
 .DS_Store
 PUBLISHING.md
+safari/
+*.zip
+olx-dark-mode-v*/
+olx-dark-modev*/
