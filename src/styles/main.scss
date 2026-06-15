@@ -8126,7 +8126,15 @@ html.olx-dark-mode {
     }
 
     .qc-cmp2-close-tooltip {
-      color: var(--text-muted) !important;
+      background-color: var(--bg-card) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+
+      &::before,
+      &::after {
+        background-color: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+      }
     }
   }
 
