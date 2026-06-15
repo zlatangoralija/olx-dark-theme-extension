@@ -5,3 +5,4 @@ dom/
 node_modules/
 dist/
 .DS_Store
+PUBLISHING.md

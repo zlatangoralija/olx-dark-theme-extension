@@ -54,7 +54,6 @@ A browser extension that brings a carefully crafted dark theme to [olx.ba](https
 
 ### Mozilla Firefox
 
-<!-- TODO: Replace with actual Firefox Add-on link -->
 1. Visit the [Firefox Add-ons listing](https://addons.mozilla.org/en-US/firefox/addon/olx-ba-dark-tema/)
 2. Click **"Add to Firefox"**
 3. Confirm by clicking **"Add"**
@@ -63,6 +62,16 @@ A browser extension that brings a carefully crafted dark theme to [olx.ba](https
 
 <!-- TODO: Replace with actual Safari extension link -->
 1. Visit the [Safari Extension listing](#)
+2. Click **"Get"** and follow the installation prompts
+
+### Microsoft Edge
+
+1. Visit the [Edge Add-ons listing](#)
+2. Click **"Get"** and follow the installation prompts
+
+### Opera
+
+1. Visit the [Opera addons listing](#)
 2. Click **"Get"** and follow the installation prompts
 
 ### Manual Installation (for developers)
