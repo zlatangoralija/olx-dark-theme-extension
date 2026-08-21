@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "pik.ba Dark tema",
-  "version": "2.0.0",
-  "description": "Uživajte u ugodnijem pretraživanju oglasa uz modernu Dark temu za olx.ba / pik.ba. Odmarajte oči dok trgujete!",
+  "name": "PIK.ba Dark tema",
+  "version": "2.0.1",
+  "description": "Uživajte u ugodnijem pretraživanju oglasa uz modernu Dark temu za PIK.ba (bivši olx.ba). Odmarajte oči dok trgujete!",
   "author": "Zlatan Goralija",
   "browser_specific_settings": {
     "gecko": {
@@ -15,7 +15,7 @@
   },
   "action": {
     "default_popup": "src/popup/popup.html",
-    "default_title": "pik.ba Dark tema"
+    "default_title": "PIK.ba Dark tema"
   },
   "icons": {
     "16": "src/assets/icons/icon16.png",

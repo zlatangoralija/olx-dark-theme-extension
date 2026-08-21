@@ -1,11 +1,11 @@
 # pik.ba Dark Mode
 
-A browser extension that brings a carefully crafted dark theme to [olx.ba](https://olx.ba) / [pik.ba](https://pik.ba) — Bosnia and Herzegovina's largest online marketplace. Browse listings, manage your profile, publish ads, and explore every page with a modern dark interface that's easy on the eyes.
+A browser extension that brings a carefully crafted dark theme to [pik.ba](https://pik.ba) (formerly [olx.ba](https://olx.ba)) — Bosnia and Herzegovina's largest online marketplace. Browse listings, manage your profile, publish ads, and explore every page with a modern dark interface that's easy on the eyes.
 
 ![Chrome Web Store](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)
 ![Firefox Add-on](https://img.shields.io/badge/Firefox-Add--on-FF7139?logo=firefox&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-2.0.0-blue)
+![Version](https://img.shields.io/badge/Version-2.0.1-blue)
 
 ---
 
@@ -104,7 +104,7 @@ If you'd like to load the extension manually from source:
 ## How to Use
 
 1. After installation, you'll see the pik.ba Dark Mode icon in your browser toolbar
-2. Navigate to any page on [olx.ba](https://olx.ba) or [pik.ba](https://pik.ba)
+2. Navigate to any page on [pik.ba](https://pik.ba) or [olx.ba](https://olx.ba)
 3. Click the extension icon to open the popup
 4. Toggle the switch to enable or disable dark mode
 5. Your preference is saved automatically — it will persist across tabs and sessions
@@ -124,7 +124,7 @@ If you'd like to load the extension manually from source:
   - `storage` — to save your dark mode on/off preference locally
   - `activeTab` — to apply the theme to the current pik.ba tab
   - `scripting` — to inject the dark mode stylesheet
-- **Host permissions** are restricted exclusively to `https://*.olx.ba/*` and `https://*.pik.ba/*` — the extension cannot access or interact with any other website
+- **Host permissions** are restricted exclusively to `https://*.pik.ba/*` and `https://*.olx.ba/*` — the extension cannot access or interact with any other website
 - **Open source** — the entire source code is publicly available for inspection in this repository
 
 ## Disclaimer
@@ -216,7 +216,7 @@ olx-dark-theme-extension/
    - Click **"Load unpacked"**
    - Select the project root directory (not `dist` — CRXJS handles this during development)
 
-5. **Open any page on olx.ba or pik.ba** and you should see the dark theme in action.
+5. **Open any page on pik.ba or olx.ba** and you should see the dark theme in action.
 
 ### Development Workflow
 
@@ -321,7 +321,7 @@ Contributions are welcome! Whether it's a bug fix, a new page that needs dark mo
    ```
 3. **Make your changes** — follow the existing code style and patterns
 4. **Test thoroughly:**
-   - Load the extension locally and verify your changes on olx.ba / pik.ba
+   - Load the extension locally and verify your changes on pik.ba / olx.ba
    - Test with dark mode both enabled and disabled
    - Check that toggling works correctly
    - Verify no visual regressions on other pages

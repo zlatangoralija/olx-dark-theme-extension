@@ -1,7 +1,7 @@
 {
-  "name": "olx-dark-mode-extension",
-  "version": "2.0.0",
-  "description": "A browser extension that adds a high-quality dark mode to olx.ba / pik.ba",
+  "name": "pik-dark-mode-extension",
+  "version": "2.0.1",
+  "description": "A browser extension that adds a high-quality dark mode to pik.ba (formerly olx.ba)",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,10 +23,10 @@
     "dark mode",
     "dark theme",
     "tamna tema",
-    "olx",
-    "olx.ba",
     "pik",
-    "pik.ba"
+    "pik.ba",
+    "olx",
+    "olx.ba"
   ],
   "license": "MIT"
 }

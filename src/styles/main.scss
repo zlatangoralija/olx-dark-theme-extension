@@ -278,8 +278,10 @@ html.olx-dark-mode {
     filter: brightness(0) invert(1);
   }
 
-  // But not the logo
+  // But not the logo (pik.ba keeps the legacy .olx-logo class, alt is now "PIK-logo")
   .headerbar img.olx-logo,
+  .headerbar img.pik-logo,
+  .headerbar img[alt="PIK-logo"],
   .headerbar img[alt="olx-logo"] {
     filter: none !important;
   }
@@ -4784,7 +4786,10 @@ html.olx-dark-mode {
     border-radius: 12px;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4) !important;
 
-    // Site logo - render in original colors (new pik.svg already has dark-friendly color)
+    // Site logo - render in original colors (pik-logo.svg is already dark-friendly)
+    > a img.olx-logo,
+    > a img.pik-logo,
+    > a img[alt="PIK-logo"],
     > a img[alt="olx-logo"] {
       filter: none !important;
     }

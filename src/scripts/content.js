@@ -2,7 +2,8 @@ import '../styles/main.scss';
 import darkLogo from '../assets/icons/logo.svg';
 
 const DARK_MODE_CLASS = 'olx-dark-mode';
-const ORIGINAL_LOGO_SRC = 'new-logo-olx';
+// pik.ba serves /img/pik-logo.svg; olx.ba legacy pages still serve new-logo-olx.*
+const ORIGINAL_LOGO_SRCS = ['pik-logo', 'new-logo-olx'];
 
 // Apply or remove dark mode class
 function setDarkMode(enabled) {
@@ -14,13 +15,14 @@ function setDarkMode(enabled) {
   swapLogo(enabled);
 }
 
-// Swap OLX logo for dark mode variant
+// Swap the site logo for the dark mode variant
 function swapLogo(enabled) {
-  // Match any img.olx-logo that either has the original src OR was already swapped by us
-  const logos = document.querySelectorAll('img.olx-logo');
+  // Match any site logo that either has the original src OR was already swapped by us.
+  // pik.ba still uses the legacy .olx-logo class on its header/form logos.
+  const logos = document.querySelectorAll('img.olx-logo, img.pik-logo');
   logos.forEach((logo) => {
     if (enabled) {
-      if (!logo.dataset.originalSrc && logo.src.includes(ORIGINAL_LOGO_SRC)) {
+      if (!logo.dataset.originalSrc && ORIGINAL_LOGO_SRCS.some((src) => logo.src.includes(src))) {
         logo.dataset.originalSrc = logo.src;
       }
       if (logo.dataset.originalSrc) {
