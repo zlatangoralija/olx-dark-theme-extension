@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "PIK.ba Dark tema",
-  "version": "2.0.1",
-  "description": "Uživajte u ugodnijem pretraživanju oglasa uz modernu Dark temu za PIK.ba (bivši olx.ba). Odmarajte oči dok trgujete!",
+  "version": "2.0.2",
+  "description": "Moderna Dark tema za PIK.ba (bivši olx.ba). Uživajte u pretraživanju oglasa i odmarajte oči dok trgujete!",
   "author": "Zlatan Goralija",
   "browser_specific_settings": {
     "gecko": {

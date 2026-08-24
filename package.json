@@ -1,6 +1,6 @@
 {
   "name": "pik-dark-mode-extension",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A browser extension that adds a high-quality dark mode to pik.ba (formerly olx.ba)",
   "type": "module",
   "scripts": {

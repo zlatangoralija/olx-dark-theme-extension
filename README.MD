@@ -47,32 +47,27 @@ A browser extension that brings a carefully crafted dark theme to [pik.ba](https
 
 ### Google Chrome / Chromium-based browsers (Edge, Brave, Arc, Opera)
 
-<!-- TODO: Replace with actual Chrome Web Store link -->
-1. Visit the [Chrome Web Store listing](#)
+1. Visit the [Chrome Web Store listing](https://chromewebstore.google.com/detail/pikba-dark-tema/ahfffhoodkodeakcngfjokmoeofbnffm)
 2. Click **"Add to Chrome"**
 3. Confirm by clicking **"Add Extension"**
 
 ### Mozilla Firefox
 
-1. Visit the [Firefox Add-ons listing](https://addons.mozilla.org/en-US/firefox/addon/olx-ba-dark-tema/)
+1. Visit the [Firefox Add-ons listing](https://addons.mozilla.org/en-US/firefox/addon/pik-ba-dark-tema/)
 2. Click **"Add to Firefox"**
 3. Confirm by clicking **"Add"**
 
 ### Apple Safari
 
-<!-- TODO: Replace with actual Safari extension link -->
-1. Visit the [Safari Extension listing](#)
+1. Visit the [Mac App Store listing](https://apps.apple.com/ba/app/olx-ba-dark-tema/id6759250881)
 2. Click **"Get"** and follow the installation prompts
+3. Open the app, then enable the extension in **Safari > Settings > Extensions**
 
-### Microsoft Edge
+### Microsoft Edge / Opera
 
-1. Visit the [Edge Add-ons listing](#)
-2. Click **"Get"** and follow the installation prompts
-
-### Opera
-
-1. Visit the [Opera addons listing](#)
-2. Click **"Get"** and follow the installation prompts
+Not published to these stores yet. Both browsers can install the extension from the
+[Chrome Web Store listing](https://chromewebstore.google.com/detail/pikba-dark-tema/ahfffhoodkodeakcngfjokmoeofbnffm)
+— Edge requires enabling *"Allow extensions from other stores"* in `edge://extensions/`.
 
 ### Manual Installation (for developers)
 

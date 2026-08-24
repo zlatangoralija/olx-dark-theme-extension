@@ -1,5 +1,10 @@
 import '../styles/main.scss';
-import darkLogo from '../assets/icons/logo.svg';
+import darkLogoUrl from '../assets/icons/logo.svg';
+
+// The bundler emits a root-absolute path ("/assets/logo-<hash>.svg"). Assigned to
+// img.src inside a content script it would resolve against the PAGE's origin
+// (https://pik.ba/assets/...) and 404. Resolve it against the extension instead.
+const darkLogo = chrome.runtime.getURL(darkLogoUrl);
 
 const DARK_MODE_CLASS = 'olx-dark-mode';
 // pik.ba serves /img/pik-logo.svg; olx.ba legacy pages still serve new-logo-olx.*
